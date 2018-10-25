@@ -34,5 +34,10 @@ create_conf_file "source-file $DOTFILES/tmux/tmux.conf" ~/.tmux.conf
 
 . "$SCRIPT_DIR/.deploy_scripts/deploy_nvim.sh"
 
+# Initialize the theme if there is none already
+if ! [ -f ~/.base16_theme ]; then
+    base16_tomorrow-night
+fi
+
 echo
 echo "Please log out and log back in for default shell to be initialized."
