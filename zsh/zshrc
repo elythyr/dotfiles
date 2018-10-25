@@ -102,15 +102,19 @@ source $ZSH/oh-my-zsh.sh
         bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
     fi
 
-    # Always work in a tmux session if tmux is installed
-    if which tmux 2>&1 >/dev/null; then
-      if [ $TERM != "screen-256color" ] && [  $TERM != "screen" ]; then
-        tmux attach -t hack || tmux new -s hack; exit
-      fi
-    fi
-
     # For base16-shell
     BASE16_SHELL="$HOME/.dotfiles/base16/base16-shell"
     [ -n "$PS1" ] && \
         [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
             eval "$("$BASE16_SHELL/profile_helper.sh")"
+
+    # Always work in a tmux session if tmux is installed
+    if which tmux 2>&1 >/dev/null; then
+      if [ $TERM != "screen-256color" ] && [  $TERM != "screen" ]; then
+        if tmux ls >/dev/null 2>&1; then
+            tmux new; exit
+        else
+            tmux new -s main; exit
+        fi
+      fi
+    fi
