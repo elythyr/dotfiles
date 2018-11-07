@@ -15,7 +15,8 @@ prompt_install() {
     if echo "$answer" | grep -iq "^y" ;then
         # This could def use community support
         if [ -x "$(command -v apt-get)" ]; then
-            sudo apt-get install $1 -y
+            echo "sudo apt-get install $1 -y"
+            echo "$1" | xargs sudo apt-get install -y
 
         elif [ -x "$(command -v brew)" ]; then
             brew install $1
@@ -35,7 +36,7 @@ prompt_install() {
 check_for_software() {
     echo "Checking to see if $1 is installed"
     if ! [ -x "$(command -v $1)" ]; then
-        prompt_install ${2:-$1}
+        prompt_install "${2:-$1}"
     else
         echo "$1 is installed."
     fi

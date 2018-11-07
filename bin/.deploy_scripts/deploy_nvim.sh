@@ -15,8 +15,9 @@ check_for_nvim_repository() {
     if ! grep -rq neovim /etc/apt/; then
         answer=$( ask_for_yes_or_no "The repository for neovim is not on your system, add it ?" )
 
-        if echo "answer" | grep -iq "^y"; then
-            sudo apt-add-repository ppa:neovim-ppa/stable
+        if echo "$answer" | grep -iq "^y"; then
+            echo "sudo apt-add-repository ppa:neovim-ppa/stable"
+            sudo apt-add-repository ppa:neovim-ppa/stable -y
             sudo apt-get update
         fi
     else
@@ -28,7 +29,8 @@ prompt_install_python_module() {
     answer=$( ask_for_yes_or_no "$1 module is not installed. Would you like to install it?" )
 
     if echo "$answer" | grep -iq "^y" ;then
-        sudo pip${2:-} install --upgrade $1
+        echo "sudo -H pip${2:-} install --upgrade $1"
+        sudo -H pip${2:-} install --upgrade $1
     fi
 }
 
