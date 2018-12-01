@@ -9,3 +9,9 @@ alias gper='grep'
 alias gpre='grep'
 
 alias v='nvim'
+
+alias php-xedbug='XDEBUG_CONFIG="idekey=xdebug" php'
+
+alias dc='docker-compose '
+
+alias sf='bin/console'
