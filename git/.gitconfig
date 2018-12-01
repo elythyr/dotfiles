@@ -12,6 +12,7 @@
 	diff = auto
 [alias]
 	st = status
+    sts = status
 	fst = "!git fetch; git status"
 	unstage = reset HEAD --
 	last = log -1 HEAD
