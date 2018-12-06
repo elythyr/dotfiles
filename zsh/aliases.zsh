@@ -15,3 +15,5 @@ alias php-xedbug='XDEBUG_CONFIG="idekey=xdebug" php'
 alias dc='docker-compose '
 
 alias sf='bin/console'
+
+alias prsync='rsync --delete -Cav --exclude=var/ --exclude=vendor/ --exclude=node_modules/'
