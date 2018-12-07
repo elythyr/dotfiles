@@ -13,6 +13,8 @@ alias v='nvim'
 alias php-xedbug='XDEBUG_CONFIG="idekey=xdebug" php'
 
 alias dc='docker-compose '
+alias dcu='dc up -d'
+alias dcd='dc down'
 
 alias sf='bin/console'
 
