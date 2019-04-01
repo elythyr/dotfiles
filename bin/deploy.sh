@@ -39,5 +39,7 @@ if ! [ -f ~/.base16_theme ]; then
     base16_tomorrow-night
 fi
 
+check_install_fzf
+
 echo
 echo "Please log out and log back in for default shell to be initialized."

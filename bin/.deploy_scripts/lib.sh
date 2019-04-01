@@ -56,10 +56,30 @@ check_default_shell() {
     fi
 }
 
+check_install_fzf() {
+    fzf_dir="$DOTFILES/fzf"
+
+    echo "Checking to see if fzf is installed"
+    if ! [ -x "$(command -v fzf)" ]; then
+        answer=$( ask_for_yes_or_no "fzf is not installed. Would you like to install it?" )
+
+        if echo "$answer" | grep -iq "^y" ;then
+            if [ -d "$fzf_dir" ]; then
+                # $fzf_dir/install --all --no-bash --no-fish --64
+                $fzf_dir/install
+            else
+                echo "Warning: $fzf_dir does not exist, install all submodules first and then deploy."
+            fi
+        fi
+    else
+        echo "fzf is installed."
+    fi
+}
+
 backup_conf_file() {
     if ! ls "$1" >/dev/null 2>&1; then
         return 0
-    fi 
+    fi
 
     echo
     answer=$( ask_for_yes_or_no "Would you like to backup $1 ?" )
