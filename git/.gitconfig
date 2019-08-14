@@ -11,29 +11,8 @@
     interactive = auto
     diff = auto
 [alias]
-    st = status -s -b
-    sts = !git st
-    fst = "!git fetch; git status"
-    unstage = reset HEAD --
     last = log -1 HEAD
-    rmt = remote -v
-    ck = checkout
-    df = diff -w
-    dfs = diff -w --staged
-    mt = mergetool
-    pr = !git fetch && git rebase --autostash
-    lolba = log --date=short --format=format:'%C(auto)%h %cd %C(blue)%an%C(reset)%C(auto) %d %s'
-    ll = !git lolba origin/master..HEAD
-    lolb = !git lolba -20
-    lola = log --date=short --format=format:'%C(auto)%h %cd %C(blue)%an%C(reset)%C(auto) %d %s' --graph --all
-    lol = !git lola -20
     ignored = !git ls-files -v | grep '^[[:lower:]]'
-    commit-amend = commit --amend --reuse-message=HEAD
-    # Merge les commits de houranet2 dans houranet en faisant un cherry pick de chacun des commits, en prenant le plus ancien d'abord (--reverse)
-    mergehouranet2 = "!f() { git fetch houranet2; for c in `git log --pretty=format:'%h' HEAD..houranet2/master --reverse` ; do git cherry-pick $c ; done; }; f"
-    # Liste la différence houranet2 et le local, c'est à dire les commits qui vont être rappatriés par le mergehouranet2
-    listhouranet2 = log HEAD..houranet2/master
-
 
     #
     # Working with branches
@@ -76,8 +55,6 @@
 
     # Unstage any files that have been added to the staging area
     unstage = reset HEAD
-    # Show changes that have been staged
-    dfc = !git df --cached
 
     # Mark a file as "assume unchanged", which means that Git will treat it
     # as though there are no changes to it even if there are. Useful for
@@ -101,4 +78,4 @@
 [merge]
     tool = fugitive
 [mergetool "fugitive"]
-    cmd = nvim -f -c \"Gdiff\" \"$MERGED\"
+    cmd = nvim -c \"Gdiff\" \"$MERGED\"
