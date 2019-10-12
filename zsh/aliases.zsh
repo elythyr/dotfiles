@@ -27,6 +27,8 @@ alias pgrep='grep --exclude-dir=vendor --exclude-dir=.git/ --exclude-dir=var/ --
 alias prsync='rsync --delete -Cav --exclude=var/ --exclude=vendor/ --exclude=node_modules/'
 
 alias g='git'
+alias gf='git fetch'
+alias gfa='git fetch --all'
 alias ga='git add'
 alias gap='git add -p'
 alias gc='git commit'
@@ -37,6 +39,7 @@ alias gdt='git difftool -w --no-prompt'
 alias gdts='git difftool -w --staged --no-prompt'
 alias gl="git log --date=short --format=format:'%C(auto)%h %cd %C(blue)%an%C(reset)%C(auto) %d %s' origin/master..HEAD"
 alias gla="git log --date=short --format=format:'%C(auto)%h %cd %C(blue)%an%C(reset)%C(auto) %d %s' --graph --all"
+alias gls='git ls-files'
 alias gmt='git mergetool --no-prompt'
 alias gp='git pull'
 alias gpr='git pull -r'
