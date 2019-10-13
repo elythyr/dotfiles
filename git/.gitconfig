@@ -78,7 +78,7 @@
 [merge]
     tool = fugitive
 [mergetool "fugitive"]
-    cmd = nvim -c \"Gdiff\" \"$MERGED\"
+    cmd = nvim -c \"Gdiff!\" \"$MERGED\"
 [grep]
     lineNumber = true
     fallbackToNoIndex = true
