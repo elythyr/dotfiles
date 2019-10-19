@@ -1,3 +1,42 @@
+DOTFILES="$(dirname $( cd "$( dirname "$0" )" ; pwd -P ))"
+
+BOLD="\e[1m"
+STOP="\e[0m"
+BLUE="\e[34m"
+GREEN="\e[32m"
+GRAY="\e[90m"
+RED="\e[31m"
+YELLOW="\e[33m"
+
+section() {
+    text="$1"
+
+    echo -n $BOLD
+    echo -n $YELLOW
+    echo "$text"
+    echo "$text" | sed 's/./=/g'
+    echo -n $STOP
+}
+
+title() {
+    text="$1"
+    level=${2:-1}
+
+    if [ "$level" -eq 1 ]; then
+        echo $GREEN
+    elif [ "$level" -eq 2 ]; then
+        echo $BLUE
+    fi
+
+    echo "$text"
+
+    if [ "$level" -eq 1 ]; then
+        echo "$text" | sed 's/./-/g'
+    fi
+
+    echo -n $STOP
+}
+
 ask_for_yes_or_no() {
     echo -n >&2 "$1 (y/n) "
 
@@ -10,69 +49,32 @@ ask_for_yes_or_no() {
 }
 
 prompt_install() {
-    answer=$( ask_for_yes_or_no "$1 is not installed. Would you like to install it?" )
+    answer=$( ask_for_yes_or_no "${GRAY}$1${STOP} is not installed. Would you like to install it?" )
 
     if echo "$answer" | grep -iq "^y" ;then
         # This could def use community support
         if [ -x "$(command -v apt-get)" ]; then
-            echo "sudo apt-get install $1 -y"
             echo "$1" | xargs sudo apt-get install -y
-
         elif [ -x "$(command -v brew)" ]; then
             brew install $1
-
         elif [ -x "$(command -v pkg)" ]; then
             sudo pkg install $1
-
         elif [ -x "$(command -v pacman)" ]; then
             sudo pacman -S $1
-
         else
-            echo "I'm not sure what your package manager is! Please install $1 on your own and run this deploy script again. Tests for package managers are in the deploy script you just ran starting at line 13. Feel free to make a pull request at https://github.com/parth/dotfiles :)"
+            echo "${RED}${BOLD}Package manager not recognized!${STOP}"
+            exit 1
         fi
+
+        echo "${GRAY}$1${STOP} was properly installed."
     fi
 }
 
 check_for_software() {
-    echo "Checking to see if $1 is installed"
     if ! [ -x "$(command -v $1)" ]; then
         prompt_install "${2:-$1}"
     else
-        echo "$1 is installed."
-    fi
-}
-
-check_default_shell() {
-    if [ -z "${SHELL##*zsh*}" ] ;then
-        echo "Default shell is zsh."
-    else
-        answer=$( ask_for_yes_or_no "Default shell is not zsh. Do you want to chsh -s \$(which zsh)?" )
-
-        if echo "$answer" | grep -iq "^y" ;then
-            chsh -s $(which zsh)
-        else
-            echo "Warning: Your configuration won't work properly. If you exec zsh, it'll exec tmux which will exec your default shell which isn't zsh."
-        fi
-    fi
-}
-
-check_install_fzf() {
-    fzf_dir="$DOTFILES/fzf"
-
-    echo "Checking to see if fzf is installed"
-    if ! [ -x "$(command -v fzf)" ]; then
-        answer=$( ask_for_yes_or_no "fzf is not installed. Would you like to install it?" )
-
-        if echo "$answer" | grep -iq "^y" ;then
-            if [ -d "$fzf_dir" ]; then
-                # $fzf_dir/install --all --no-bash --no-fish --64
-                $fzf_dir/install
-            else
-                echo "Warning: $fzf_dir does not exist, install all submodules first and then deploy."
-            fi
-        fi
-    else
-        echo "fzf is installed."
+        echo "${GRAY}$1${STOP} is already installed."
     fi
 }
 
@@ -82,12 +84,15 @@ backup_conf_file() {
     fi
 
     echo
-    answer=$( ask_for_yes_or_no "Would you like to backup $1 ?" )
+    answer=$( ask_for_yes_or_no "Would you like to backup it?" )
 
     if echo "$answer" | grep -iq "^y" ;then
-        mv -i "$1" "$1.previous-dotfiles-deployement"
+        backup=$(mktemp "$1.XXXX")
+        mv -i "$1" "$backup"
+
+        echo "Backed up as $GRAY$backup$STOP"
     else
-        echo "\nNot backing up $1."
+        echo "Not backed up."
     fi
 }
 
@@ -98,7 +103,7 @@ do_create_conf_file() {
 
     printf "$1" > "$2"
 
-    echo
+    echo "File $GRAY$2$STOP created."
 }
 
 create_conf_file() {
@@ -108,13 +113,16 @@ create_conf_file() {
         return 0
     fi
 
-    backup_conf_file $2
-    echo
+    answer=$( ask_for_yes_or_no "The file $GRAY$2$STOP already exists, do you want to overwrite it ?" )
+    if ! echo "$answer" | grep -iq "^y" ;then
+        echo "Add the following content to $GRAY$2$STOP:"
+        echo -n $BLUE
+        echo "$1"
+        echo -n $STOP
 
-    answer=$( ask_for_yes_or_no "The file '$2' already exists, do you want to overwrite it ?" )
-    if echo "$answer" | grep -iq "^y" ;then
-        do_create_conf_file "$1" "$2"
-    else
-        echo "Add the following line to '$2':\n$1\n"
+        return 0
     fi
+
+    backup_conf_file "$2"
+    do_create_conf_file "$1" "$2"
 }

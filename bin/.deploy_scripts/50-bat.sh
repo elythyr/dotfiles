@@ -31,4 +31,7 @@ check_install_bat() {
     fi
 }
 
+section "bat"
+
+title "Installation"
 check_install_bat
