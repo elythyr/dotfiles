@@ -32,7 +32,10 @@ create_conf_file "source '$DOTFILES/zsh/zshrc'" ~/.zshrc
 
 create_conf_file "source-file $DOTFILES/tmux/tmux.conf" ~/.tmux.conf
 
-. "$SCRIPT_DIR/.deploy_scripts/deploy_nvim.sh"
+for script in $SCRIPT_DIR/.deploy_scripts/*; do
+    . "$script"
+    echo
+done
 
 # Initialize the theme if there is none already
 if ! [ -f ~/.base16_theme ]; then
