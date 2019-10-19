@@ -1,10 +1,9 @@
+if ! type 'prompt_install' >/dev/null 2>&1; then
+    . ./lib.sh
+fi
+
 # I'm not sure my NeoVim configuration is sill working with vim 8 anymore
 # I'll assume not and not even bother installing it for now
-
-if [ -z $DOTFILES ]; then
-    echo "This script is not meant to be used directly"
-    exit
-fi
 
 NVIMDIR="${XDG_CONFIG_HOME:-$HOME/.config}/nvim"
 NVIMRC="$NVIMDIR/init.vim"
