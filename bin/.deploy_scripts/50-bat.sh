@@ -3,6 +3,12 @@ if ! type 'prompt_install' >/dev/null 2>&1; then
     . "$THIS_DIR/../lib.sh"
 fi
 
+THEMES_DIR="$(bat --config-dir)/themes"
+THEME_URL="https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/textmate/Tomorrow-Night.tmTheme"
+THEME_FILENAME="$(basename "$THEME_URL")"
+THEME_NAME=$(basename "$THEME_FILENAME" ".tmTheme")
+CONFIG_FILE="$(bat --config-file)"
+
 install_bat() {
     echo "Fetching last version of bat..."
 
@@ -10,7 +16,7 @@ install_bat() {
     BAT_BIN="/tmp/$(basename "$BAT_URL")"
 
     echo "Downloading $(basename $BAT_BIN):"
-    wget -q --show-progress --progress=bar:force -P "$(dirname $BAT_BIN)" -q "$BAT_URL"
+    wget -q --show-progress --progress=bar:force -P "$(dirname $BAT_BIN)" "$BAT_URL"
 
     echo "Installing bat:"
     sudo dpkg -i "$BAT_BIN"
@@ -31,7 +37,32 @@ check_install_bat() {
     fi
 }
 
+add_tomorrow_night_theme() {
+    if [ -f "$THEMES_DIR/$THEME_FILENAME" ]; then
+        echo "The theme already exists."
+
+        return 0
+    fi
+
+    if ! [ -d "$THEMES_DIR" ]; then
+        mkdir -p "$THEMES_DIR"
+    fi
+
+    wget -q -P "$THEMES_DIR" "$THEME_URL"
+    bat cache --build >/dev/null 2>&1
+
+    echo "The theme was added."
+}
+
 section "bat"
 
 title "Installation"
 check_install_bat
+
+title "Theme"
+
+title "Add Tomorrow-Night" 2
+add_tomorrow_night_theme
+
+title "Configuration"
+create_conf_file "--theme=\"$THEME_NAME\"\n--style=\"numbers,changes\"" "$CONFIG_FILE"
