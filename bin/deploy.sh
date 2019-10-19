@@ -3,7 +3,7 @@
 SCRIPT_DIR="$( cd "$( dirname "$0" )" ; pwd -P )"
 DOTFILES=$( dirname "$SCRIPT_DIR" )
 
-. "$SCRIPT_DIR/.deploy_scripts/lib.sh"
+. "$SCRIPT_DIR/lib.sh"
 
 echo "We're going to do the following:"
 echo "1. Check to make sure you have zsh, vim, and tmux installed"

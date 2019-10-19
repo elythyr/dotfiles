@@ -1,5 +1,6 @@
 if ! type 'prompt_install' >/dev/null 2>&1; then
-    . ./lib.sh
+    THIS_DIR="$( cd "$( dirname "$0" )" ; pwd -P )"
+    . "$THIS_DIR/../lib.sh"
 fi
 
 install_bat() {
