@@ -84,11 +84,11 @@ backup_conf_file() {
     fi
 
     echo
-    answer=$( ask_for_yes_or_no "Would you like to backup it?" )
+    answer=$( ask_for_yes_or_no "Would you like to backup it first?" )
 
     if echo "$answer" | grep -iq "^y" ;then
         backup=$(mktemp "$1.XXXX")
-        mv -i "$1" "$backup"
+        mv "$1" "$backup"
 
         echo "Backed up as $GRAY$backup$STOP"
     else
@@ -101,7 +101,7 @@ do_create_conf_file() {
         mkdir -p "$( dirname "$2" )"
     fi
 
-    printf "$1" > "$2"
+    echo "$1" > "$2"
 
     echo "File $GRAY$2$STOP created."
 }
