@@ -66,5 +66,3 @@ check_for_python_module neovim 3
 
 title "Configuration"
 create_conf_file "source $DOTFILES/vim/vimrc" "$NVIMRC"
-
-exit
