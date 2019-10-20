@@ -52,6 +52,7 @@ configure_starship() {
     fi
 
     echo 'eval "$(starship init zsh)"' | tee --append "$HOME/.zshrc" >/dev/null
+    ln -sf "$DOTFILES/starship/starship.toml" "$HOME/.config/starship.toml"
 
     echo "${GRAY}Starship is now configured, execute the following command to take the changes into account:${STOP}"
     echo -n ${BLUE}
