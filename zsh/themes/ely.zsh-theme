@@ -6,11 +6,16 @@ prompt_docker_host() {
   fi
 }
 
-local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
-PROMPT='${ret_status} %{$fg[cyan]%}${PWD/#$HOME/~}%{$reset_color%} $(git_prompt_info)'
+# local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
+local ret_status="%(?:%{$fg_bold[green]%}❯:%{$fg_bold[red]%}❯)%{$reset_color%}"
+PROMPT='
+%{$fg[cyan]%}${PWD/#$HOME/~}%{$reset_color%} $(git_prompt_info)
+${ret_status} '
 RPROMPT='$(prompt_docker_host)'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}✗"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
+
+# vim:ft=zsh ts=2 sw=2 sts=2
