@@ -8,7 +8,7 @@ prompt_docker_host() {
 
 local ret_status="%(?:%{$fg_bold[green]%}➜:%{$fg_bold[red]%}➜)%{$reset_color%}"
 PROMPT='
-%{$fg[cyan]%}${PWD/#$HOME/~}%{$reset_color%} $(git_prompt_info)
+%{$fg_bold[cyan]%}${PWD/#$HOME/~}%{$reset_color%} $(git_prompt_info)
 ${ret_status} '
 RPROMPT='$(prompt_docker_host)'
 
