@@ -3,11 +3,9 @@ if ! type 'prompt_install' >/dev/null 2>&1; then
     . "$THIS_DIR/../lib.sh"
 fi
 
-THEMES_DIR="$(bat --config-dir)/themes"
 THEME_URL="https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/textmate/Tomorrow-Night.tmTheme"
 THEME_FILENAME="$(basename "$THEME_URL")"
 THEME_NAME=$(basename "$THEME_FILENAME" ".tmTheme")
-CONFIG_FILE="$(bat --config-file)"
 
 install_bat() {
     echo "Fetching last version of bat..."
@@ -38,6 +36,8 @@ check_install_bat() {
 }
 
 add_tomorrow_night_theme() {
+    THEMES_DIR="$(bat --config-dir)/themes"
+
     if [ -f "$THEMES_DIR/$THEME_FILENAME" ]; then
         echo "The theme already exists."
 
@@ -65,4 +65,4 @@ title "Add Tomorrow-Night" 2
 add_tomorrow_night_theme
 
 title "Configuration"
-create_conf_file "--theme=\"$THEME_NAME\"\n--style=\"numbers,changes\"" "$CONFIG_FILE"
+create_conf_file "--theme=\"$THEME_NAME\"\n--style=\"numbers,changes\"" "$(bat --config-file)"
