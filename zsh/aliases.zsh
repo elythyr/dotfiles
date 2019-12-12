@@ -51,6 +51,7 @@ alias gsl='git stash list'
 alias gsp='git stash pop'
 alias gss='git stash push' # Alias for the old git stash save, so that gsp is git stash pop
 alias gtb='git checkout -tb'
+alias gpu='git push -u origin $(git rev-parse --abbrev-ref HEAD)'
 
 alias c='composer'
 alias cc='composer check'
