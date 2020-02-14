@@ -14,7 +14,13 @@ check_for_nvim_repository() {
         answer=$( ask_for_yes_or_no "The repository for neovim is not on your system, add it?" )
 
         if echo "$answer" | grep -iq "^y"; then
-            sudo apt-add-repository ppa:neovim-ppa/stable -y
+            answer=$( ask_for_yes_or_no "Do you want to use the latest version (unstable) ?" )
+            if echo "$answer" | grep -iq "^y"; then
+                sudo apt-add-repository ppa:neovim-ppa/unstable -y
+            else
+                sudo apt-add-repository ppa:neovim-ppa/stable -y
+            fi
+
             sudo apt-get update
 
             echo "The repository was properly added."
