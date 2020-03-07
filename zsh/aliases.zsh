@@ -37,7 +37,7 @@ alias gd='git diff -w'
 alias gds='git diff -w --staged'
 alias gdt='git difftool -w --no-prompt'
 alias gdts='git difftool -w --staged --no-prompt'
-alias gl="git log --date=short --format=format:'%C(auto)%h %cd %C(blue)%an%C(reset)%C(auto) %d %s' origin/master..HEAD"
+alias gl="git log --date=short --format=format:'%C(auto)%h %cd %C(blue)%an%C(reset)%C(auto) %d %s' @{u}..HEAD"
 alias gla="git log --date=short --format=format:'%C(auto)%h %cd %C(blue)%an%C(reset)%C(auto) %d %s' --graph --all"
 alias gls='git ls-files'
 alias gmt='git mergetool --no-prompt'
