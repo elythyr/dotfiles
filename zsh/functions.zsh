@@ -5,3 +5,14 @@
 #     ls;
 # }
 # alias cd='cdls'
+
+# Load a local config when switching directory
+# The goal is to be able to override aliases in some specific cases
+function chpwd() {
+    # Always reload the main file to erase any previous override
+    source $HOME/.zshrc
+
+    if [ -r $PWD/.zsh_config ]; then
+        source $PWD/.zsh_config
+    fi
+}
