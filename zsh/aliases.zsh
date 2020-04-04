@@ -10,6 +10,8 @@ alias gpre='grep'
 
 alias v='nvim'
 
+alias m='make'
+
 alias php-xedbug='XDEBUG_CONFIG="idekey=xdebug" php'
 
 alias dc='docker-compose'
@@ -32,26 +34,25 @@ alias gfa='git fetch --all'
 alias ga='git add'
 alias gap='git add -p'
 alias gc='git commit'
-alias gck='git checkout'
-alias gd='git diff -w'
-alias gds='git diff -w --staged'
+alias gck='git ck'
+alias gtb='git checkout -tb'
+alias gd='git df'
+alias gds='git dfs'
 alias gdt='git difftool -w --no-prompt'
 alias gdts='git difftool -w --staged --no-prompt'
-alias gl="git log --date=short --format=format:'%C(auto)%h %cd %C(blue)%an%C(reset)%C(auto) %d %s' @{u}..HEAD"
-alias gla="git log --date=short --format=format:'%C(auto)%h %cd %C(blue)%an%C(reset)%C(auto) %d %s' --graph --all"
+alias gl="git l"
+alias gla="git la"
 alias gls='git ls-files'
-alias gmt='git mergetool --no-prompt'
+alias gmt='git mt --no-prompt'
 alias gp='git pull'
-alias gpr='git pull -r'
+alias gpr='git pr'
 alias gr='git rebase'
-alias grb='git rebase -i $(git merge-base master HEAD)'
 alias gri='git rebase -i'
-alias gs='git status -sb'
+alias gs='git st'
 alias gsl='git stash list'
 alias gsp='git stash pop'
 alias gss='git stash push' # Alias for the old git stash save, so that gsp is git stash pop
-alias gtb='git checkout -tb'
-alias gpu='git push -u origin $(git rev-parse --abbrev-ref HEAD)'
+alias gpu='git publish'
 
 alias c='composer'
 alias cc='composer check'
