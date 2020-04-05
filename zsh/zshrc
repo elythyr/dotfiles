@@ -118,7 +118,7 @@ source $ZSH/oh-my-zsh.sh
     if which tmux 2>&1 >/dev/null; then
       if [ $TERM != "screen-256color" ] && [  $TERM != "screen" ]; then
         if tmux ls >/dev/null 2>&1; then
-            tmux new; exit
+            tmux attach; exit
         else
             tmux new -s main; exit
         fi
