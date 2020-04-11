@@ -1,9 +1,9 @@
-.PHONY: deploy update-repository update-submodules update update-pip update-pynvim
+.PHONY: deploy update-repository update-submodules update update-pip update-pynvim update-pman
 
 deploy: update
 	./bin/deploy.sh
 
-update: update-repository update-submodules update-pip update-pynvim
+update: update-repository update-submodules update-pip update-pynvim update-pman
 
 update-repository:
 	git pull --rebase --autostash
@@ -21,3 +21,6 @@ update-pip:
 update-pynvim:
 	python2 -m pip install --user --upgrade pynvim
 	python3 -m pip install --user --upgrade pynvim
+
+update-pman:
+	sudo pear upgrade doc.php.net/pman
