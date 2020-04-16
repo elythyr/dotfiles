@@ -29,6 +29,7 @@ alias pgrep='grep --exclude-dir=vendor --exclude-dir=.git/ --exclude-dir=var/ --
 alias prsync='rsync --delete -Cav --exclude=var/ --exclude=vendor/ --exclude=node_modules/'
 
 alias g='git'
+alias gb='git branch'
 alias gf='git fetch'
 alias gfa='git fetch --all'
 alias ga='git add'
