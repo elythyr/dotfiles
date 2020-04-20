@@ -117,11 +117,11 @@ source $ZSH/oh-my-zsh.sh
 
     # Always work in a tmux session if tmux is installed
     if which tmux 2>&1 >/dev/null; then
-      if [ $TERM != "screen-256color" ] && [  $TERM != "screen" ]; then
+       if [ -z ${TMUX+x} ]; then
         if tmux ls >/dev/null 2>&1; then
-            tmux attach; exit
+           tmux attach; exit
         else
-            tmux new -s main; exit
+           tmux new -s main; exit
         fi
-      fi
+       fi
     fi
