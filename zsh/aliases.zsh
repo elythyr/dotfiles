@@ -4,6 +4,13 @@ alias ll='ls --color=auto -lh'
 alias ls='ls --color=auto'
 alias lt='ll -tr'
 
+alias rm='rm -i'
+alias rm!='\rm'
+alias cp='cp -i'
+alias cp!='\cp'
+alias mv='mv -i'
+alias mv!='\mv'
+
 alias gepr='grep'
 alias gper='grep'
 alias gpre='grep'
