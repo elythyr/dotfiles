@@ -43,14 +43,12 @@
     # Example format: plugins=(rails git textmate ruby lighthouse)
     # Add wisely, as too many plugins slow down shell startup.
     plugins=(
-      git
       colored-man-pages
       docker
       docker-machine
       vi-mode
       command-not-found
       composer
-      common-aliases
       yarn
       zsh-autosuggestions
       zsh-syntax-highlighting
