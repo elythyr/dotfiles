@@ -1,6 +1,7 @@
 .PHONY: deploy update-repository update-submodules update update-pip update-pynvim update-pman
+.PHONY: terminfo
 
-deploy: update
+deploy: update terminfo
 	./bin/deploy.sh
 
 update: update-repository update-submodules update-pip update-pynvim update-pman
@@ -24,3 +25,12 @@ update-pynvim:
 
 update-pman:
 	sudo pear upgrade doc.php.net/pman
+
+# To force it delete the file terminfo.src.gz
+terminfo: terminfo.src.gz
+
+terminfo.src.gz:
+	@curl -LO http://invisible-island.net/datafiles/current/terminfo.src.gz \
+	&& gunzip --keep terminfo.src.gz \
+	&& sudo tic terminfo.src \
+	&& \rm terminfo.src
