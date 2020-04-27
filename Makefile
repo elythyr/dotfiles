@@ -47,6 +47,7 @@ ifeq ($(wildcard ~/.local/share/fonts/Ubuntu\ Mono*),)
 	cd $$HOME/.local/share/fonts \
 		&& unzip -uj ubuntu-mono.zip \
 		&& \rm -f ubuntu-mono.zip \
-	)
+	) \
+	&& fc-cache -fv
 endif
 
