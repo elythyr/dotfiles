@@ -1,5 +1,5 @@
-.PHONY: deploy update-repository update-submodules update update-pip update-pynvim update-pman
-.PHONY: terminfo fonts
+.PHONY: deploy update-repository update-submodules update-submodules-remote update
+.PHONY: update-pip update-pynvim update-pman terminfo fonts
 
 deploy: update terminfo fonts
 	./bin/deploy.sh
