@@ -24,6 +24,7 @@ update-pynvim:
 	python3 -m pip install --user --upgrade pynvim
 
 update-pman:
+	sudo apt install php-pear
 	sudo pear upgrade doc.php.net/pman
 
 # To force it delete the file terminfo.src.gz
