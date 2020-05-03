@@ -1,4 +1,4 @@
-DOTFILES="$(dirname "$(dirname $( cd "$( dirname "$0" )" ; pwd -P ))")"
+DOTFILES="$(dirname $( cd "$( dirname "$0" )" ; pwd -P ))"
 
 BOLD="\e[1m"
 STOP="\e[0m"
