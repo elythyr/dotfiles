@@ -59,21 +59,11 @@
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-    export ZSHRC="$HOME/.zshrc"
-    export VIMRC="$HOME/.config/nvim/init.vim"
-    [ -f "$HOME/.tmux.conf" ] && export "$HOME/.tmux.conf"
 
     # export MANPATH="/usr/local/man:$MANPATH"
 
     # You may need to manually set your language environment
     # export LANG=en_US.UTF-8
-
-    # Preferred editor for local and remote sessions
-    if [[ -n $SSH_CONNECTION ]]; then
-      export EDITOR='vim'
-    else
-      export EDITOR='nvim'
-    fi
 
     # Compilation flags
     # export ARCHFLAGS="-arch x86_64"
@@ -119,10 +109,6 @@ source $ZSH/oh-my-zsh.sh
     # [ -n "$PS1" ] && \
     #     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
     #         eval "$("$BASE16_SHELL/profile_helper.sh")"
-
-    # Load shortfucts to use git with fzf
-    [ -f $HOME/.fzf-git/functions.sh ] && source $HOME/.fzf-git/functions.sh
-    [ -f $HOME/.fzf-git/key-binding.zsh ] && source $HOME/.fzf-git/key-binding.zsh
 
     # Always work in a tmux session if tmux is installed
     if which tmux 2>&1 >/dev/null; then
