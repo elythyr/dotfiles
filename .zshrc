@@ -2,10 +2,11 @@
     # If you come from bash you might have to change your $PATH.
     # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+    # Keep it for backward compatibility until I cleaned that up
+    export DOTFILES="$HOME"
     # Path to your oh-my-zsh installation.
-    export DOTFILES="$HOME/.dotfiles"
-    export ZSH="$DOTFILES/oh-my-zsh"
-    export ZSH_CUSTOM="$DOTFILES/zsh"
+    export ZSH="$HOME/.oh-my-zsh"
+    export ZSH_CUSTOM="$HOME/.zsh"
 
     # Set name of the theme to load
     ZSH_THEME="ely"
@@ -58,9 +59,9 @@
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-    export ZSHRC="$ZSH_CUSTOM/zshrc"
-    export VIMRC="$DOTFILES/vim/vimrc"
-    export TMUXRC="$DOTFILES/tmux/tmux.conf"
+    export ZSHRC="$HOME/.zshrc"
+    export VIMRC="$HOME/.config/nvim/init.vim"
+    [ -f "$HOME/.tmux.conf" ] && export "$HOME/.tmux.conf"
 
     # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -78,7 +79,7 @@ source $ZSH/oh-my-zsh.sh
     # export ARCHFLAGS="-arch x86_64"
 
     # ssh
-    export SSH_KEY_PATH="~/.ssh/rsa_id"
+    export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
 
     # Aliases and all other configurationss is stored under ZSH_CUSTOM.*.zsh
     # and will be autoloaded by oh-my-zsh
@@ -89,11 +90,14 @@ source $ZSH/oh-my-zsh.sh
 
     # Fix CTRL + LEFT|RIGHT arrows
     # vi-mode plugin was messing this up, so I needed to put it back after the plugin was loaded
+    # TODO bind ^B and ^W to move words by words in viins
+    # TODO bind ^B, ^F, ^D and ^U to scroll when in vicom (normal mode afeter escape, don't remember the exact name)
     bindkey '^[[1;5C' forward-word                   # [Ctrl-RightArrow] - move forward one word
     bindkey '^[[1;5D' backward-word                  # [Ctrl-LeftArrow] - move backward one word
 
     # Fix for arrow-key searching
     # start typing + [Up-Arrow] - fuzzy find history forward
+    # TODO try to make it happend for ^N and ^P which are the equivalent in vim key mode
     if [[ "${terminfo[kcuu1]}" != "" ]]; then
         autoload -U up-line-or-beginning-search
         zle -N up-line-or-beginning-search
@@ -106,14 +110,19 @@ source $ZSH/oh-my-zsh.sh
         bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
     fi
 
-    # For base16-shell
-    BASE16_SHELL="$HOME/.dotfiles/base16/base16-shell"
-    [ -n "$PS1" ] && \
-        [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-            eval "$("$BASE16_SHELL/profile_helper.sh")"
+    ## For base16-shell
+    ## Uncomment while migrating toward a bare repo
+    ## Not sure I want to keep it, I like the idea of having the same theme in
+    ## my terminal and vim without too much efforts
+    ## But it looks to slow things down quit a bit on old machine
+    # BASE16_SHELL="$HOME/.dotfiles/base16/base16-shell"
+    # [ -n "$PS1" ] && \
+    #     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+    #         eval "$("$BASE16_SHELL/profile_helper.sh")"
 
-    [ -f $DOTFILES/fzf-git/functions.sh ] && source $DOTFILES/fzf-git/functions.sh
-    [ -f $DOTFILES/fzf-git/key-binding.zsh ] && source $DOTFILES/fzf-git/key-binding.zsh
+    # Load shortfucts to use git with fzf
+    [ -f $HOME/fzf-git/functions.sh ] && source $HOME/fzf-git/functions.sh
+    [ -f $HOME/fzf-git/key-binding.zsh ] && source $HOME/fzf-git/key-binding.zsh
 
     # Always work in a tmux session if tmux is installed
     if which tmux 2>&1 >/dev/null; then
