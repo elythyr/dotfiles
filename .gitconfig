@@ -90,3 +90,5 @@
 [grep]
     lineNumber = true
     fallbackToNoIndex = true
+[remote]
+    pushDefault = origin
