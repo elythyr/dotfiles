@@ -121,8 +121,8 @@ source $ZSH/oh-my-zsh.sh
     #         eval "$("$BASE16_SHELL/profile_helper.sh")"
 
     # Load shortfucts to use git with fzf
-    [ -f $HOME/fzf-git/functions.sh ] && source $HOME/fzf-git/functions.sh
-    [ -f $HOME/fzf-git/key-binding.zsh ] && source $HOME/fzf-git/key-binding.zsh
+    [ -f $HOME/.fzf-git/functions.sh ] && source $HOME/.fzf-git/functions.sh
+    [ -f $HOME/.fzf-git/key-binding.zsh ] && source $HOME/.fzf-git/key-binding.zsh
 
     # Always work in a tmux session if tmux is installed
     if which tmux 2>&1 >/dev/null; then
