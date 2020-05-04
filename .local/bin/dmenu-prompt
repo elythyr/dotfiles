@@ -1,0 +1,4 @@
+#!/bin/sh
+# Source: https://github.com/LukeSmithxyz/voidrice
+
+[ "$(echo -e "No\nYes" | dmenu -i -p "$1" -nb "#111" -sb firebrick -sf black -nf lightgray -fn "UbuntuMono Nerd Font:pixelsize=12:bold")" = "Yes" ] && $2
