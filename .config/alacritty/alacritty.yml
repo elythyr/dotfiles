@@ -99,6 +99,7 @@ font:
     #   - (Windows) Consolas
     # family: monospace
     family: UbuntuMono Nerd Font
+    # family: Hack Nerd Font
     # family: Inconsolata
     # family: Mononoki Nerd Font
 
