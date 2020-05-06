@@ -49,11 +49,11 @@
       docker-machine
       vi-mode
       command-not-found
-      composer
       yarn
       zsh-autosuggestions
       zsh-syntax-highlighting
       timer
+      fzf
     )
 
 source $ZSH/oh-my-zsh.sh
