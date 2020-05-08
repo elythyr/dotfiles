@@ -1,0 +1,98 @@
+#
+# Hotkeys for i3 with sxhkd
+#
+
+# i3 {{{
+
+# reload the configuration file
+super + shift + c
+	i3-msg reload
+
+# Reload sxhkd config file and restart bspwm
+super + shift + r
+    pkill -USR1 -x sxhkd; \
+	i3-msg restart
+
+# exit i3 (logs you out of your X session)
+super + ctrl + e
+	dmenu-prompt "Exit i3?" "i3 exit"
+
+# }}}
+
+# Windows {{{
+
+# close a window (gently if possible)
+super + q
+	i3-msg kill
+
+# focus/move the node in the given direction
+super + {_,shift + }{h,j,k,l}
+	i3-msg {focus,move} {left,down,up,right}
+
+# focus the node for the given path jump
+super + {p,comma}
+	i3-msg focus {parent,child}
+
+# focus the next/previous node in the current desktop
+super + {_,shift + }c
+	i3-msg focus {next,prev}
+
+# Thanks azerty keyboard ;)
+# focus a desktop
+super + {ampersand,eacute,quotedbl,apostrophe,parenleft,section,egrave,exclam,ccedilla,agrave}
+	i3-msg workspace number '{1-9,10}'
+
+# send to a desktop
+super + shift + {1-9,0}
+    number='{1-9,10}'; \
+	i3-msg move container to workspace number $number; \
+	i3-msg workspace number $number
+
+super + {_,shift + }b
+	i3-msg {,move container to workspace back_and_forth; i3-msg} workspace back_and_forth
+
+# make a window sticky (only for floating windows)
+super + ctrl + y
+	i3-msg sticky toggle
+
+# }}}
+
+# Scratchpad {{{
+
+# Show/Put the window in the scratchpad
+super + {_,shift + }s
+	i3-msg {scratchpad show,move scratchpad}
+
+# }}}
+
+# Layout {{{
+
+# Toggle split direction
+super + shift + v
+	i3-msg split toggle
+
+# Toggle fullscreen
+super + f
+	i3-msg fullscreen toggle
+
+# }}}
+
+# Resize {{{
+
+# expand or contract a window by moving one of its side outward/inward
+super + r : { \
+h, shift + l, \
+j, shift + k, \
+k, shift + j, \
+l, shift + h \
+}
+	i3-msg resize { \
+		grow left, shrink left, \
+		grow down, shrink down, \
+		grow up, shrink up, \
+		grow right, shrink right \
+	} 20 px
+
+# }}}
+
+# vim: fdm=marker
