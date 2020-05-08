@@ -17,7 +17,7 @@ export COMPOSER_BIN="$COMPOSER_HOME/vendor/bin"
 # Defautl programs
 export EDITOR="nvim"
 export TERMINAL="alacritty"
-export BROWSER="vimb"
+export BROWSER="qutebrowser"
 
 # This prevent to add the same path multiple time. Overtherwise each time a new
 # zsh is started the paths added here would be duplicated.
