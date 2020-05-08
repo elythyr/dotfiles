@@ -73,4 +73,4 @@ alias ct='composer test'
 
 alias most_used_commands="history | awk '{a[\$2]++}END{for(i in a){print a[i] \"s \" i}}' | sort -rn | head -20"
 
-alias dotfiles="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+alias dtf="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
