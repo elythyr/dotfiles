@@ -1,0 +1,47 @@
+#
+# Environment variables are accessible but they must be defined before sxhkd
+# starts. Since it's started by the X server it's done through a login shell so
+# the best place to put them is the .profile file which should be loaded by
+# most shells
+#
+
+# Applications {{{
+
+# reboot/shutdown
+super + {shift,ctrl} + BackSpace
+	dmenu-prompt {"Reboot?" "sudo -A reboot","Shutdown?" "sudo -A shutdown -h now"}
+
+# make sxhkd reload its configuration files:
+super + Escape
+    pkill -USR1 -x sxhkd
+
+# terminal emulator
+super + {_,shift + }Return
+    {$TERMINAL,samedir}
+
+# program launcher
+super + @space
+    dmenu_run -fn "Hack:pixelsize=10"
+
+# open applications
+# b:    Browser
+# w:    VimWiki
+# For alacritty:
+# $TERMINAL --class 'VimWiki' -e $EDITOR +packadd\ vimwiki +VimwikiIndex \
+super + o ; {b,w}
+    { \
+        $BROWSER, \
+        vimwiki, \
+    }
+
+# }}}
+
+# Media keys {{{
+
+# Control the monitor brightness
+{_,shift + }XF86MonBrightness{Down,Up}
+    brightnessctl set {5,10}%{-,+}
+
+# }}}
+
+# vim: ts=4 sw=4 et fdm=marker

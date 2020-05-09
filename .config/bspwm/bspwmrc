@@ -1,0 +1,54 @@
+#! /bin/sh
+
+# Start programs {{{
+
+# Run sxhkd only if not already running
+pgrep -x sxhkd >/dev/null 2>&1 || sxhkd "/home/cdejoye/.config/bspwm/sxhkdrc" &
+
+# Run custom script to start polybar (starts in background so no need to do it)
+$HOME/.config/polybar/launch.sh
+
+# }}}
+
+# Variables {{{
+borderWidth=1
+borderGap=-$borderWidth
+
+# }}}
+
+# Monitors {{{
+
+# Spread desktops amongs monitors
+bspc monitor -d I II III IV V VI VII VIII IX X
+
+# }}}
+
+# Borders & gaps {{{
+
+bspc config border_width $borderWidth
+bspc config window_gap $borderGap
+for side in top right bottom left ; do
+    # To have the borders ont he edges of the screen
+	# bspc config ${side}_padding $borderWidth
+    # Remomve the borders ont the edges of the screen
+	bspc config ${side}_padding 0
+done
+
+# }}}
+
+# To look for, extract from the examples
+bspc config split_ratio          0.5
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+# bspc config top_padding 0
+# bspc config bottom_padding 10
+# bspc config left_padding 0
+# bspc config right_padding 0
+
+# bspc rule -a Gimp desktop='^8' state=floating follow=on
+# bspc rule -a Chromium desktop='^2'
+# bspc rule -a mplayer2 state=floating
+# bspc rule -a Kupfer.py focus=on
+# bspc rule -a Screenkey manage=off
+
+bspc rule -a *:VimWiki desktop='^10' locked=true follow=true
