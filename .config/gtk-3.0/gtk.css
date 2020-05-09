@@ -1,5 +1,5 @@
 .termite {
   padding-left: 2px;
   /* Make sure to match the background color defined in ~/.config/termite/config */
-  background-color: rgb(29, 31, 33)
+  background-color: #1d1f21
 }
