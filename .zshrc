@@ -110,6 +110,11 @@ source $ZSH/oh-my-zsh.sh
     #     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
     #         eval "$("$BASE16_SHELL/profile_helper.sh")"
 
+    export MANPAGER="/bin/sh -c \"col -b -x | \
+    vim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
+    -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
+    -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
+
     # Always work in a tmux session if tmux is installed
     if which tmux 2>&1 >/dev/null; then
        if [ -z ${TMUX+x} ]; then
