@@ -45,15 +45,13 @@
     # Add wisely, as too many plugins slow down shell startup.
     plugins=(
       colored-man-pages
-      docker
-      docker-machine
-      vi-mode
       command-not-found
-      yarn
       zsh-autosuggestions
       zsh-syntax-highlighting
+      # Needs to be after zsh-syntax-highlighting otherwise it broke the highlighting
+      zsh-vim-mode
       timer
-      fzf
+      pass
     )
 
 source $ZSH/oh-my-zsh.sh
@@ -77,28 +75,6 @@ source $ZSH/oh-my-zsh.sh
     # For vim mappings:
     # Commented until I try it
     # stty -ixon
-
-    # Fix CTRL + LEFT|RIGHT arrows
-    # vi-mode plugin was messing this up, so I needed to put it back after the plugin was loaded
-    # TODO bind ^B and ^W to move words by words in viins
-    # TODO bind ^B, ^F, ^D and ^U to scroll when in vicom (normal mode afeter escape, don't remember the exact name)
-    bindkey '^[[1;5C' forward-word                   # [Ctrl-RightArrow] - move forward one word
-    bindkey '^[[1;5D' backward-word                  # [Ctrl-LeftArrow] - move backward one word
-
-    # Fix for arrow-key searching
-    # start typing + [Up-Arrow] - fuzzy find history forward
-    # TODO try to make it happend for ^N and ^P which are the equivalent in vim key mode
-    if [[ "${terminfo[kcuu1]}" != "" ]]; then
-        autoload -U up-line-or-beginning-search
-        zle -N up-line-or-beginning-search
-        bindkey "${terminfo[kcuu1]}" up-line-or-beginning-search
-    fi
-    # start typing + [Down-Arrow] - fuzzy find history backward
-    if [[ "${terminfo[kcud1]}" != "" ]]; then
-        autoload -U down-line-or-beginning-search
-        zle -N down-line-or-beginning-search
-        bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
-    fi
 
     ## For base16-shell
     ## Uncomment while migrating toward a bare repo
