@@ -16,7 +16,7 @@ export COMPOSER_BIN="$COMPOSER_HOME/vendor/bin"
 
 # Defautl programs
 export EDITOR="nvim"
-export TERMINAL="alacritty"
+export TERMINAL="urxvt"
 export BROWSER="qutebrowser"
 
 # This prevent to add the same path multiple time. Overtherwise each time a new

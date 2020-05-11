@@ -26,8 +26,6 @@ super + @space
 # open applications
 # b:    Browser
 # w:    VimWiki
-# For alacritty:
-# $TERMINAL --class 'VimWiki' -e $EDITOR +packadd\ vimwiki +VimwikiIndex \
 super + o ; {b,w}
     { \
         $BROWSER, \
