@@ -38,7 +38,7 @@ URxvt.font: xft:Hack Nerd Font Mono:size=8, \
 
 ! Extensions {{{
 
-URxvt.perl-ext-common:  default,resize-font,keyboard-select
+URxvt.perl-ext-common:  default,resize-font,keyboard-select,clipboard
 URxvt.perl-ext: default,url-select
 
 ! Yankable URLs
@@ -51,6 +51,10 @@ URxvt.url-select.underline: true
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
 ! Override the default backward search mode
 URxvt.keysym.M-s: perl:keyboard-select:search
+
+! Clipboard
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste
 
 ! }}}
 
