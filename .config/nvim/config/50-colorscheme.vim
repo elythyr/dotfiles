@@ -2,7 +2,7 @@ set background=dark
 
 let s:colorscheme = 'base-16'
 
- " base-16 {{{
+" base-16 {{{
 
 if 'base-16' == s:colorscheme
   if exists('*packager#init')

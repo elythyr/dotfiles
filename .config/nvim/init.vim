@@ -1,9 +1,9 @@
 " Will always add the directory of this file to the runtimepath
 " Allow me to move all the vim-config repository inside my .dotfiles/
 let s:my_vim_dir = fnamemodify(resolve(expand('<sfile>')), ':p:h')
-execute 'set runtimepath^=' . s:my_vim_dir
-execute 'set runtimepath+=' . s:my_vim_dir . '/after'
-let &packpath = &runtimepath
+" execute 'set runtimepath^=' . s:my_vim_dir
+" execute 'set runtimepath+=' . s:my_vim_dir . '/after'
+" let &packpath = &runtimepath
 
 " To add a personal templates directory to the runtimepath
 execute 'set runtimepath+=' . s:my_vim_dir . '/templates'

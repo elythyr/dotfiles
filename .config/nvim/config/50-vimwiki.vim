@@ -10,4 +10,5 @@ let g:vimwiki_list = [{'path': '~/vimwiki/',
 " with configured file-extension as a wiki.
 let g:vimwiki_global_ext = 0 " .md files are not automatically considered as a wiki
 
-nnoremap <silent><Leader>nw :unmap <Leader>nw<BAR>packadd vimwiki<BAR>VimwikiTabIndex<CR>
+" I will try to only start it with sxhkd => hardmode ;)
+" nnoremap <silent><Leader>nw :unmap <Leader>nw<BAR>packadd vimwiki<BAR>VimwikiTabIndex<CR>

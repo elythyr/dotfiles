@@ -3,7 +3,9 @@ if exists('*packager#init')
 endif
 
 " The directory of fzf must also be in the runtimepath
-execute 'set runtimepath+='. $DOTFILES .'/fzf'
+" execute 'set runtimepath+='. $DOTFILES .'/fzf'
+" already in the rtp
+" set rtp+=/usr/share/vim/vimfiles
 
 " Search Files
 nmap <Leader>sf :GFiles<CR>
