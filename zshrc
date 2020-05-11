@@ -3,10 +3,10 @@
     # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
     # Keep it for backward compatibility until I cleaned that up
-    export DOTFILES="$HOME"
+    export DOTFILES="$HOME/.dotfiles"
     # Path to your oh-my-zsh installation.
-    export ZSH="$HOME/.oh-my-zsh"
-    export ZSH_CUSTOM="$HOME/.zsh"
+    export ZSH="$DOTFILES/oh-my-zsh"
+    export ZSH_CUSTOM="$DOTFILES/zsh"
 
     # Set name of the theme to load
     ZSH_THEME="ely"
@@ -81,7 +81,7 @@ source $ZSH/oh-my-zsh.sh
     ## Not sure I want to keep it, I like the idea of having the same theme in
     ## my terminal and vim without too much efforts
     ## But it looks to slow things down quit a bit on old machine
-    # BASE16_SHELL="$HOME/.dotfiles/base16/base16-shell"
+    # BASE16_SHELL="$DOTFILES/base16-shell"
     # [ -n "$PS1" ] && \
     #     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
     #         eval "$("$BASE16_SHELL/profile_helper.sh")"
