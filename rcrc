@@ -1,2 +1,2 @@
 EXCLUDES="README.md base16-shell fzf fzf-git oh-my-zsh zsh"
-SYMLINK_DIRS="config/nvim"
+SYMLINK_DIRS="config/nvim password-store"
