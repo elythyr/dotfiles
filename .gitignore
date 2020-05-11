@@ -1,3 +1,0 @@
-/terminfo.src.gz
-# Ignore the bare repository to avoir recursion issues
-/.dotfiles
