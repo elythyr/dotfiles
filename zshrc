@@ -87,7 +87,7 @@ source $ZSH/oh-my-zsh.sh
     #         eval "$("$BASE16_SHELL/profile_helper.sh")"
 
     export MANPAGER="/bin/sh -c \"col -b -x | \
-    vim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
+    vim -R -c 'set ft=man nomod nolist nonu nornu' -c 'map q :q<CR>' \
     -c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
     -c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
 
