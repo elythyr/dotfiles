@@ -4,6 +4,7 @@
 
 # Run sxhkd only if not already running
 pgrep -x sxhkd >/dev/null 2>&1 || sxhkd "/home/cdejoye/.config/bspwm/sxhkdrc" &
+pgrep -x pa-applet >/dev/null 2>&1 || pa-applet &
 
 # Run custom script to start polybar (starts in background so no need to do it)
 $HOME/.config/polybar/launch.sh
