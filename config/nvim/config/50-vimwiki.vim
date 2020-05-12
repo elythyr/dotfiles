@@ -3,8 +3,10 @@ if exists('*packager#init')
 endif
 
 let g:vimwiki_map_prefix = '<Leader>n'
-let g:vimwiki_list = [{'path': '~/vimwiki/',
-  \ 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_list = [
+  \ {'path': '~/.local/share/vimwiki/', 'syntax': 'markdown', 'ext': '.md'},
+  \ {'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'},
+\ ]
 
 " Vimwiki has a feature called "Temporary Wikis", that will treat every file
 " with configured file-extension as a wiki.

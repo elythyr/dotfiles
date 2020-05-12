@@ -4,7 +4,7 @@ echoerr() {
     printf "%s\n" "$*" >&2
 }
 
-wikiCommand="nvim +packadd\ vimwiki +VimwikiIndex"
+wikiCommand="nvim +packadd\ vimwiki +call\ vimwiki#base#goto_index\(2\)"
 
 case $TERMINAL in
     alacritty) nameOption="class"; wikiCommand="-e $wikiCommand";;
