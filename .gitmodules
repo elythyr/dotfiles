@@ -22,6 +22,3 @@
 [submodule "password-store"]
 	path = password-store
 	url = git@github.com:elythyr/password-store.git
-[submodule "config/polybar/scripts/pulseaudio-control"]
-	path = config/polybar/scripts/pulseaudio-control
-	url = https://github.com/marioortizmanero/polybar-pulseaudio-control
