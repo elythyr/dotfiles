@@ -19,6 +19,7 @@
     - [Desktop notifications](utilities/desktop-notifications)
     - [Brightness](utilities/brightness)
     - [Neovim](utilities/neovim)
+    - [Polybar](utilities/polybar)
 9. [Fonts](fonts)
 
 ### Softwares to check
