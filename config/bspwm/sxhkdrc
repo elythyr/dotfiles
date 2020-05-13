@@ -76,7 +76,7 @@ super + {grave,Tab}
 
 # Thanks azerty keyboard ;)
 # focus a desktop
-super + {ampersand,eacute,quotedbl,apostrophe,parenleft,section,egrave,exclam,ccedilla,agrave}
+super + {ampersand,eacute,quotedbl,apostrophe,parenleft,minus,egrave,underscore,ccedilla,agrave}
     bspc desktop -f '^{1-9,10}'
 
 # Thanks azerty keyboard ;)
