@@ -75,6 +75,7 @@ modules-right = memory cpu wlan eth battery pulseaudio-control date
 tray-position = right
 tray-padding = 2
 ;tray-background = #0063ff
+;tray-scale = 1.0
 
 ; Value to be used to set the WM_NAME atom
 ; If the value is empty or undefined, the atom value
@@ -292,6 +293,7 @@ format-disconnected =
 type = internal/date
 interval = 5
 
+date = "%a %d "
 date-alt = "%d-%m-%Y "
 
 time = %H:%M
