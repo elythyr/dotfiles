@@ -17,15 +17,25 @@
 ;==========================================================
 
 [colors]
-;background = ${xrdb:color0:#222}
-background = #222
-background-alt = #444
-;foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
-foreground-alt = #555
-primary = #ffb52a
-secondary = #e60053
-alert = #bd2c40
+gray = ${xrdb:color8:#969896}
+light-gray = ${xrdb:color20:#b4b7b4}
+white = ${xrdb:color15:#ffffff}
+almost-white = ${xrdb:color21:#e0e0e0}
+red = ${xrdb:color1:#cc6666}
+orange = ${xrdb:color16:#de935f}
+yellow = ${xrdb:color3:#f0c674}
+green = ${xrdb:color2:#b2bd68}
+light-blue = ${xrdb:color6:#8abeb7}
+purple = ${xrdb:color5:#b294bb}
+blue = ${xrdb:color4:#81a2be}
+
+background = ${xrdb:background:#1d1f21}
+background-alt = ${xrdb:color19:#282a2e}
+foreground = ${xrdb:foreground:#c5c8c6}
+foreground-alt = ${xrdb:color19:#373b41}
+primary = ${colors.blue}
+secondary = ${colors.green}
+alert = ${colors.red}
 
 [fonts]
 text = 1
@@ -41,16 +51,16 @@ height = 18
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0.0
-fixed-center = false
+fixed-center = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
 line-size = 2
-line-color = #f00
+line-color = ${colors.primary}
 
 border-size = 0
-border-color = #00000000
+border-color = #000
 
 padding-left = 0
 padding-right = 2
@@ -68,7 +78,7 @@ font-5 = "Symbols Nerd Font:pixelsize=10;1"
 font-6 = "siji:pixelsize=10;1"
 
 modules-left = bspwm i3
-modules-center = mpd
+; modules-center = mpd
 ; modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
 modules-right = memory cpu wlan eth battery pulseaudio-control date
 
@@ -233,7 +243,7 @@ interval = 2
 format-prefix = ""
 format-prefix-font = ${fonts.nf-icons}
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #f90000
+format-underline = ${colors.alert}
 label = %percentage:2%%
 ; format = <label> <ramp-coreload>
 
@@ -255,7 +265,7 @@ interval = 2
 format-prefix = ""
 format-prefix-font = ${fonts.fa-solid-big}
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #4bffdc
+format-underline = ${colors.primary}
 label = " %percentage_used%%"
 
 [module/wlan]
@@ -266,7 +276,7 @@ interval = 3.0
 format-connected = <label-connected>
 format-connected-font = ${fonts.fa-solid-small}
 format-connected-foreground = ${colors.foreground-alt}
-format-connected-underline = #9f78e1
+format-connected-underline = ${colors.purple}
 label-connected = " %essid%"
 label-connected-font = 1
 label-connected-foreground = ${colors.foreground}
@@ -301,8 +311,9 @@ time-alt = %H:%M:%S
 
 ; format-prefix = 
 ; format-prefix-font = ${fonts.fa-solid-small}
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #0a6cf5
+; format-prefix-foreground = ${colors.foreground-alt}
+; format-underline = #0a6cf5
+format-underline = ${colors.secondary}
 
 label = %date%%time%
 
@@ -337,7 +348,7 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 type = custom/script
 tail = true
 label = %output%
-format-underline = ${colors.secondary}
+format-underline = ${colors.orange}
 
 exec = ~/.config/polybar/scripts/pulseaudio-control.bash listen
 click-right = exec pavucontrol &
@@ -385,7 +396,7 @@ full-at = 99
 
 ; format-charging = <ramp-capacity> <label-charging>
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
+format-charging-underline = ${colors.yellow}
 
 format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
