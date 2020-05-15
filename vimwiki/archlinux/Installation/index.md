@@ -157,7 +157,7 @@ echo 'KEYMAP=fr-latin1' > /etc/vconsole.conf
 
 Configure the keyboard layout for Xorg, generate the config file `/etc/X11/xorg.conf/00-keyboard.conf`:
 ```sh
-localectl --no-convert set-x11-keymap fr,us "latin," "" grp:alt_space_toggle,caps:escape
+localectl --no-convert set-x11-keymap fr,us "oss," "" terminate:ctrl_alt_bksp,grp:alt_space_toggle,caps:escape
 ```
 
 INFO: Could not run it during the install, will have to it in the configuration after the reboot I guess.
