@@ -10,11 +10,11 @@ OSD="no"  # On Screen Display message for KDE if enabled
 INC=5  # Increment when lowering/rising the volume
 MAX_VOL=130  # Maximum volume
 AUTOSYNC="yes"  # All programs have the same volume if enabled
-VOLUME_ICONS=( " " " " " " )  # Volume icons array, from lower volume to higher
-MUTED_ICON="婢 "  # Muted icon
+VOLUME_ICONS=(    )  # Volume icons array, from lower volume to higher
+MUTED_ICON=婢  # Muted icon
 MUTED_COLOR="%{F#373b41}"  # Color when the audio is muted
 ICON_COLOR="$MUTED_COLOR"  # Color for the icons
-ICON_FONT="%{T4}" # Font to use for the icons
+ICON_FONT="%{T6}" # Font to use for the icons
 NOTIFICATIONS="yes"  # Notifications when switching sinks if enabled
 SINK_ICON=""  # Icon always shown to the left of the default sink names
 
@@ -24,10 +24,13 @@ SINK_BLACKLIST=(
     "alsa_output.usb-SinkYouDontUse-00.analog-stereo"
 )
 
+# Name of the sink with the JACK plug
+JACK_SINK_NAME="alsa_output.pci-0000_00_14.2.analog-stereo"
+
 # Maps PulseAudio sink names to human-readable names
 declare -A SINK_NICKNAMES
-SINK_NICKNAMES["alsa_output.pci-0000_00_14.2.analog-stereo"]="Default"
-SINK_NICKNAMES["alsa_output.usb-Corsair_Corsair_VOID_PRO_Wireless_Gaming_Headset-00.analog-stereo"]=" Corsair"
+SINK_NICKNAMES["$JACK_SINK_NAME"]="Default"
+SINK_NICKNAMES["alsa_output.usb-Corsair_Corsair_VOID_PRO_Wireless_Gaming_Headset-00.analog-stereo"]=
 
 
 # Environment & global constants for the script
@@ -57,6 +60,23 @@ function getSinkName() {
 }
 
 
+# I want to know when my headphones are plugged in
+# This function will update the nickname by checking if the active port of the given sink
+# contains the word 'headphones'
+function getJackSinkNickname() {
+    pactl list sinks \
+        | awk -v RS="" "/$1/ {print}" \
+        | awk '/Active Port:/ { print $NF }' \
+        | grep 'headphones' >/dev/null 2>&1
+
+    if [ 0 -eq $? ]; then
+        nickname=
+    else
+        nickname=蓼
+    fi
+}
+
+
 # Saves the name to be displayed for the sink passed by parameter into a
 # variable called `nickname`.
 # If a mapping for the sink name exists, that is used. Otherwise, the string
@@ -65,6 +85,7 @@ function getNickname() {
     getSinkName "$1"
     if [ -n "${SINK_NICKNAMES[$sinkName]}" ]; then
         nickname="${SINK_NICKNAMES[$sinkName]}"
+        [ "Default" = "$nickname" ] && getJackSinkNickname "$sinkName"
     else
         nickname="Sink #$1"
     fi
@@ -290,9 +311,11 @@ function output() {
 
     # Showing the formatted message
     if [ "$isMuted" = "yes" ]; then
-        echo "${MUTED_COLOR}${MUTED_ICON}${curVol}% ${SINK_ICON}${nickname}${END_COLOR}"
+        # echo "${ICON_FONT}${MUTED_COLOR}${MUTED_ICON}${END_FONT} ${curVol}% ${SINK_ICON}${nickname}${END_COLOR}"
+        echo "${ICON_FONT}${MUTED_COLOR}${MUTED_ICON}${END_FONT}"
     else
-        echo "${ICON_FONT}${MUTED_COLOR}${volIcon}${END_FONT}${END_COLOR}${curVol}% ${SINK_ICON}${nickname}"
+        # echo "${ICON_FONT}${MUTED_COLOR}${volIcon}${END_FONT}${END_COLOR} ${curVol}% ${SINK_ICON}${nickname}"
+        echo "${ICON_FONT}${MUTED_COLOR}${nickname}${END_FONT}${END_COLOR} ${curVol}%"
     fi
 }
 
