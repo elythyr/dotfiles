@@ -22,4 +22,4 @@ export BROWSER="qutebrowser"
 # This prevent to add the same path multiple time. Overtherwise each time a new
 # zsh is started the paths added here would be duplicated.
 typeset -U PATH
-export PATH="$PATH:$HOME/.local/bin:$COMPOSER_BIN"
+export PATH="$HOME/.local/bin:$PATH:$COMPOSER_BIN"
