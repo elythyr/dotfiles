@@ -21,6 +21,7 @@
     - [Neovim](utilities/neovim)
     - [Polybar](utilities/polybar)
     - [Nitrogen](utilities/nitrogen)
+    - [Picom](utilities/picom)
 9. [Fonts](fonts)
 
 ### Softwares to check
@@ -33,15 +34,10 @@
 suckless.org
 
 * doas
-* compton
-* dmenu / suckless-tools / rofi
+* dmenu / rofi
 * pcmanfm
-* sudo
-* xorg-server
-* xorg-xinit
 * i3, bspwm
 * rxvt-unicode (terminal emulator)
-* dmenu
 * nm-applet (network manager with statusbar icon)
 * ttf-linux-libertine ttf-inconsolata (fonts)
 * polybar, dzen2, xmobar, gnome-panel

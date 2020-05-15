@@ -3,6 +3,10 @@
 # Run sxhkd only if not already running
 pgrep -x sxhkd >/dev/null 2>&1 || sxhkd "/home/cdejoye/.config/bspwm/sxhkdrc" &
 
+# Run the compositor for transparent window
+# Must be strated before polybar, otherwise the terminals goes over it
+# pgrep -x picom >/dev/null 2>&1 || picom -b
+
 # Run custom script to start polybar (starts in background so no need to do it)
 $HOME/.config/polybar/launch.sh
 
