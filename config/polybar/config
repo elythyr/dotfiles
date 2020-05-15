@@ -59,8 +59,8 @@ foreground = ${colors.foreground}
 line-size = 2
 line-color = ${colors.primary}
 
-border-size = 0
-border-color = #000
+border-top-size = 1
+border-color = ${colors.background-alt}
 
 padding-left = 0
 padding-right = 2
