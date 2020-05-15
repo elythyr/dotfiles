@@ -14,11 +14,8 @@ super + ctrl + r
     bspc wm --restart
 
 # close and kill
-# super + {_,shift + }q
-#   bspc node -{c,k}
-# Only close, I'm not a murderer
-super + q
-    bspc node --close
+super + {_,shift + }q
+  bspc node --{close,kill}
 
 # alternate between the tiled and monocle layout
 super + m
