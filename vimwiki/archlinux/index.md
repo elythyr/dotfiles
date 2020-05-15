@@ -20,6 +20,7 @@
     - [Brightness](utilities/brightness)
     - [Neovim](utilities/neovim)
     - [Polybar](utilities/polybar)
+    - [Nitrogen](utilities/nitrogen)
 9. [Fonts](fonts)
 
 ### Softwares to check
@@ -33,7 +34,6 @@ suckless.org
 
 * doas
 * compton
-* nitrogen
 * dmenu / suckless-tools / rofi
 * pcmanfm
 * sudo
@@ -47,6 +47,7 @@ suckless.org
 * polybar, dzen2, xmobar, gnome-panel
 * xmonad
 * xfce4-power-manager
+* dzen
 
 
 ### Utils

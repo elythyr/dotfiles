@@ -45,3 +45,6 @@ bspc config gapless_monocle      true
 # bspc rule -a Screenkey manage=off
 
 bspc rule -a *:VimWiki desktop='^10' locked=true follow=true
+bspc rule -a Nitrogen state=floating center=on
+
+# vim: fdm=marker
