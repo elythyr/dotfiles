@@ -1,0 +1,59 @@
+! Disable keycap picture when pressing Ctrl + Shift
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+
+! Scroll {{{
+
+! Disable the scrollbar
+URxvt.scrollBar: false
+! Do not scroll with output
+URxvt.scrollTtyOutput: false
+! Scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+URxvt.scrollWithBuffer: true
+! Scroll back to the bottom on keypress
+URxvt.scrollTtyKeypress: true
+
+! Disable the scrollback buffer when using the "secondary screen" (pager for instance)
+URxvt.secondaryScreen: 1
+URxvt.secondaryScroll: 0
+
+! I usually do not use the mouse but the previous config make does not work the mouse wheel
+! It might be worth it to install the following AUR package to fix that: rxvt-unicode-better-wheel-scrolling
+! And enable the following config
+! URxvt.secondaryWheel: 1
+
+! }}}
+
+! Fonts {{{
+
+URxvt.font: xft:Hack Nerd Font Mono:size=8, \
+            xft:UbuntuMono Nerd Font Mono:size=9
+
+! Characters feels a little bit so far from each other
+! URxvt.letterSpace: -1
+
+! }}}
+
+! Extensions {{{
+
+URxvt.perl-ext-common:  default,resize-font,keyboard-select,clipboard
+URxvt.perl-ext: default,url-select
+
+! Yankable URLs
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.launcher: /usr/bin/xdg-open
+URxvt.url-select.underline: true
+
+! Keyboard select
+! Activate the "normal" mode
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+! Override the default backward search mode
+URxvt.keysym.M-s: perl:keyboard-select:search
+
+! Clipboard
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste
+
+! }}}
+
+! vim: ft=xdefaults fdm=marker
