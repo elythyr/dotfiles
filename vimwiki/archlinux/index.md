@@ -20,33 +20,13 @@
     - [Brightness](utilities/brightness)
     - [Neovim](utilities/neovim)
     - [Polybar](utilities/polybar)
-    - [Nitrogen](utilities/nitrogen)
+    - [Feh](utilities/feh)
     - [Picom](utilities/picom)
 9. [Fonts](fonts)
 
+
 ### Softwares to check
-
-#### Light web browsers to check
-
-- vimb
-- qtbrowser
-
-suckless.org
 
 * doas
 * dmenu / rofi
-* pcmanfm
-* i3, bspwm
-* rxvt-unicode (terminal emulator)
-* nm-applet (network manager with statusbar icon)
-* ttf-linux-libertine ttf-inconsolata (fonts)
-* polybar, dzen2, xmobar, gnome-panel
-* xmonad
-* xfce4-power-manager
-* dzen
-
-
-### Utils
-
-* htop
-* firefox
+* dzen2
