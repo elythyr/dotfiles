@@ -23,10 +23,3 @@
     - [Feh](utilities/feh)
     - [Picom](utilities/picom)
 9. [Fonts](fonts)
-
-
-### Softwares to check
-
-* doas
-* dmenu / rofi
-* dzen2
