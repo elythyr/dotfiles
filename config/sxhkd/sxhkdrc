@@ -21,7 +21,7 @@ super + {_,shift + }Return
 
 # program launcher
 super + @space
-    dmenu_run -fn "Hack:pixelsize=10"
+    rofi -show run
 
 # open applications
 # b:    Browser
