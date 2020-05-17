@@ -10,7 +10,7 @@ case $TERMINAL in
     alacritty) nameOption="class"; wikiCommand="-e $wikiCommand";;
     termite) nameOption="--name"; wikiCommand="-e \"$wikiCommand\"";;
     kitty) nameOption="--name";;
-    urxvt) nameOption="-name"; wikiCommand="-e $wikiCommand";;
+    urxvt|urxvtc) nameOption="-name"; wikiCommand="-e $wikiCommand";;
     *) echoerr "Dot know the terminal emulator '$TERMINAL', update the script $0"; exit 1;;
 esac
 
