@@ -22,4 +22,5 @@
     - [Polybar](utilities/polybar)
     - [Feh](utilities/feh)
     - [Picom](utilities/picom)
+    - [Dunst](utilities/dunst)
 9. [Fonts](fonts)
