@@ -32,6 +32,10 @@ super + o ; {b,w}
         vimwiki, \
     }
 
+# lock the screen
+super + shift + l
+    loginctl lock-session
+
 # }}}
 
 # Media keys {{{

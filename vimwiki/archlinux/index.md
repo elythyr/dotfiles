@@ -23,4 +23,5 @@
     - [Feh](utilities/feh)
     - [Picom](utilities/picom)
     - [Dunst](utilities/dunst)
+    - [Screen locker](utilities/screen-locker)
 9. [Fonts](fonts)

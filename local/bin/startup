@@ -15,6 +15,9 @@ pgrep -x urxvtd >/dev/null 2>&1 || urxvtd -q -f -o
 # Start the notification deamon
 pgrep -x dunst >/den/null 2>&1 || dunst &
 
+# Start xss-lock to handle the lock screen
+pgrep -x xss-lock >/dev/null 2>&1 || xss-lock -q -- sflock -f -misc-hack-medium-r-normal--0-800-0-0-m-0-iso8859-1 -b 'You shall not pass!' -h &
+
 # Run custom script to start polybar (starts in background so no need to do it)
 # Must be strated last, otherwise windows goes over it
 $HOME/.config/polybar/launch.sh
