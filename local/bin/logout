@@ -1,0 +1,4 @@
+#!/bin/sh
+
+pgrep -x bspwm >/dev/null 2>&1 && bspc quit
+pgrep -x i3 >/dev/null 2>&1 && i3 exit
