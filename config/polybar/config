@@ -81,7 +81,7 @@ font-6 = "Symbols Nerd Font:pixelsize=8;1"
 modules-left = bspwm i3
 ; modules-center = mpd
 ; modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
-modules-right = memory cpu wlan eth battery pulseaudio-control date powermenu
+modules-right = memory cpu wlan eth battery pulseaudio-control date udisks
 
 tray-position = right
 tray-padding = 2
@@ -451,6 +451,14 @@ content = 
 content-font = ${fonts.nf-icons-small}
 
 click-left = ~/.config/polybar/scripts/powermenu.sh
+
+[module/udisks]
+type = custom/text
+
+content = 
+content-font = ${fonts.nf-icons-small}
+
+click-left = ~/.local/bin/udisks-menu -i -lines 5 -width 20 -location 5 -yoffset -25 -xoffset -5
 
 [settings]
 screenchange-reload = true

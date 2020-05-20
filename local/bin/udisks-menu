@@ -1,0 +1,44 @@
+#!/bin/sh
+
+list=""
+alreadyMountedIndexes=""
+index=0
+
+while read -r values; do
+    # Ignore empty line (when there is no device that can be handled)
+    [ -z "$values" ] && continue
+
+    # import the values
+    eval $values
+
+    # Don't add the separator for the first device
+    [ -n "$list" ] && list+="\n"
+    list+="$NAME: $LABEL"
+
+    # If already mounted
+    if [ -n "$MOUNTPOINT" ]; then
+        [ -n "$alreadyMountedIndexes" ] && alreadyMountedIndexes+=","
+        alreadyMountedIndexes+="$index"
+    fi
+
+    ((index++))
+done <<<$(
+lsblk -Pnpo NAME,TYPE,HOTPLUG,MOUNTPOINT,LABEL \
+    | awk '/TYPE="part".*HOTPLUG="1"/'
+)
+
+device=$(
+echo -e $list \
+    | rofi -dmenu -p "Device" -a "$alreadyMountedIndexes" $* \
+    | cut -d : -f 1
+)
+
+if [ -n "$device" ]; then
+    mountpoint="$(lsblk -dno MOUNTPOINT "$device")"
+
+    if [ -n "$mountpoint" ]; then
+        udisksctl unmount -b "$device" >/dev/null
+    else
+        udisksctl mount -b "$device" >/dev/null
+    fi
+fi

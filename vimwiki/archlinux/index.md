@@ -24,5 +24,6 @@
     - [Picom](utilities/picom)
     - [Dunst](utilities/dunst)
     - [Screen locker](utilities/screen-locker)
+    - [UDisks](utilities/udisks)
 9. [Fonts](fonts)
 10. [Docker](docker)
