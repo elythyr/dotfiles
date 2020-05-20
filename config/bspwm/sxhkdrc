@@ -2,8 +2,6 @@
 # Hotkeys for bspwm with sxhkd
 #
 
-# bspwm {{{
-
 # quit bspwm
 super + alt + BackSpace
 	dmenu-prompt "Logout?" "bspc quit"
@@ -122,6 +120,3 @@ l, shift + h \
 	}
 
 # }}}
-
-# }}}
-
