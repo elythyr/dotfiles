@@ -30,7 +30,7 @@ purple = ${xrdb:color5:#b294bb}
 blue = ${xrdb:color4:#81a2be}
 
 background = ${xrdb:background:#1d1f21}
-background-alt = ${xrdb:color19:#282a2e}
+background-alt = ${xrdb:color19:#373b41}
 foreground = ${xrdb:foreground:#c5c8c6}
 foreground-alt = ${xrdb:color19:#373b41}
 primary = ${colors.blue}
