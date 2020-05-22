@@ -26,8 +26,7 @@ URxvt.secondaryScroll: 0
 
 ! Fonts {{{
 
-URxvt.font: xft:Hack Nerd Font Mono:size=8, \
-            xft:UbuntuMono Nerd Font Mono:size=9
+URxvt.font: xft:Hack Nerd Font Mono:size=8
 
 ! Characters feels a little bit so far from each other
 ! URxvt.letterSpace: -1
