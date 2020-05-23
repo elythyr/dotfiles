@@ -1,11 +1,9 @@
-# That's the right place to put environment variables
-# They will be loaded in every cases and therefore always available
-
 # Locale
 export LANG="fr_FR.UTF-8"
 export LC_MESSAGES="en_US.UTF-8"
 
 # Config files
+export DOTFILES="$HOME/.dotfiles"
 export ZSHRC="$HOME/.zshrc"
 export VIMRC="$HOME/.config/nvim/init.vim"
 export TMUXRC="$HOME/.tmux.conf"
@@ -19,7 +17,10 @@ export EDITOR="nvim"
 export TERMINAL="urxvtc"
 export BROWSER="qutebrowser"
 
-# This prevent to add the same path multiple time. Overtherwise each time a new
-# zsh is started the paths added here would be duplicated.
-typeset -U PATH
-export PATH="$HOME/.local/bin:$PATH:$COMPOSER_BIN"
+# PATH
+. ~/.shell/functions.sh
+
+pathprepend "$COMPOSER_BIN" "PATH"
+pathprepend "$HOME/.local/bin" "PATH"
+
+# vim: ft=sh

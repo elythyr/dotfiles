@@ -1,0 +1,21 @@
+# File loaded from ~/.zprofile
+
+# Source the default actions
+. ~/.shell/login
+
+# Do things specific to ZSH
+
+ZSH_COMPDUMP="${ZDOTDIR:-$HOME}/.zcompdump"
+ZSH_COMPDUMP_COMPILED="${ZSH_COMPDUMP}.zwc"
+
+# Compile the completion dump if it has changed
+# After installing a new plugin provided completion you might need to delete
+# $ZSH_COMPDUMP file so that it will be updated next time zsh starts
+{
+    if [[ -s "$ZSH_COMPDUMP" && (! -s "$ZSH_COMPDUMP_COMPILED" || "$ZSH_COMPDUMP" -nt "$ZSH_COMPDUMP_COMPILED") ]]; then
+        zcompile "$ZSH_COMPDUMP"
+    fi
+} &!
+
+
+# vim: ft=zsh

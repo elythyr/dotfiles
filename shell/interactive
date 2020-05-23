@@ -1,7 +1,11 @@
-alias l='ls -C'
-alias la='ll -A'
-alias ll='ls --color=auto -lh'
+# Aliases {{{
+
+# Improved commands {{{
+
 alias ls='ls --color=auto'
+alias l='ls -C'
+alias ll='ls -lh'
+alias la='ll -A'
 alias lt='ll -tr'
 
 alias rm='rm -i'
@@ -11,15 +15,26 @@ alias cp!='\cp'
 alias mv='mv -i'
 alias mv!='\mv'
 
-alias gepr='grep'
-alias gper='grep'
-alias gpre='grep'
+alias most_used_commands="history | awk '{a[\$2]++}END{for(i in a){print a[i] \"s \" i}}' | sort -rn | head -20"
+
+# }}}
+
+# Shortcuts {{{
 
 alias v='nvim'
 
 alias m='make'
 
+# }}}
+
+# PHP {{{
+
 alias php-xedbug='XDEBUG_CONFIG="idekey=xdebug" php'
+alias sf='bin/console'
+
+# }}}
+
+# Docker {{{
 
 alias dc='docker-compose'
 alias dcd='dc down'
@@ -30,10 +45,9 @@ alias dk='docker'
 alias dm='docker-machine'
 alias dmleave='eval $(docker-machine env -u)'
 
-alias sf='bin/console'
+# }}}
 
-alias pgrep='grep --exclude-dir=vendor --exclude-dir=.git/ --exclude-dir=var/ --exclude-dir=node_modules/'
-alias prsync='rsync --delete -Cav --exclude=var/ --exclude=vendor/ --exclude=node_modules/'
+# Git {{{
 
 alias g='git'
 alias gb='git branch'
@@ -65,6 +79,10 @@ alias gsp='git stash pop'
 alias gss='git stash push' # Alias for the old git stash save, so that gsp is git stash pop
 alias gpu='git publish'
 
+# }}}
+
+# Composer {{{
+
 alias c='composer'
 alias cc='composer check'
 alias composers='composer'
@@ -72,6 +90,47 @@ alias cs='composer cs'
 alias csf='composer cs-fix'
 alias ct='composer test'
 
-alias most_used_commands="history | awk '{a[\$2]++}END{for(i in a){print a[i] \"s \" i}}' | sort -rn | head -20"
+# }}}
 
-alias dtf="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+# }}}
+
+# Base16 shell {{{
+
+# # For base16-shell
+# # Uncomment while migrating toward a bare repo
+# # Not sure I want to keep it, I like the idea of having the same theme in
+# # my terminal and vim without too much efforts
+# # But it looks to slow things down quit a bit on old machine
+# BASE16_SHELL="$DOTFILES/base16-shell"
+# [ -n "$PS1" ] && \
+#     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+#         eval "$("$BASE16_SHELL/profile_helper.sh")"
+
+# }}}
+
+# MANPAGER {{{
+
+# Use vim as manpager
+export MANPAGER="/bin/sh -c \"col -b -x | \
+vim -R -c 'set ft=man nomod nolist nonu nornu' -c 'map q :q<CR>' \
+-c 'map <SPACE> <C-D>' -c 'map b <C-U>' \
+-c 'nmap K :Man <C-R>=expand(\\\"<cword>\\\")<CR><CR>' -\""
+
+# }}}
+
+# Tmux {{{
+
+# Always work in a tmux session if tmux is installed
+if command -v tmux >/dev/null 2>&1; then
+    if [ -z ${TMUX+x} ]; then
+        if tmux ls >/dev/null 2>&1; then
+            tmux attach; exit
+        else
+            tmux new -s main; exit
+        fi
+    fi
+fi
+
+# }}}
+
+# vim: ft=sh fdm=marker
