@@ -1,3 +1,3 @@
-EXCLUDES="README.md base16-shell fzf fzf-git oh-my-zsh zsh/oh-my-zsh"
+EXCLUDES="README.md base16-shell fzf fzf-git oh-my-zsh zsh/pure zsh/oh-my-zsh"
 SYMLINK_DIRS="config/nvim password-store vimwiki"
 UNDOTTED="Pictures vimwiki"
