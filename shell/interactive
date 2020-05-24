@@ -2,6 +2,9 @@
 
 # Improved commands {{{
 
+# Allow to use the user aliases with sudo
+alias sudo='sudo '
+
 alias ls='ls --color=auto'
 alias l='ls -C'
 alias ll='ls -lh'
