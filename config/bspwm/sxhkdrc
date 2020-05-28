@@ -1,9 +1,5 @@
 # Global {{{
 
-# quit bspwm
-alt + shift + BackSpace
-	dmenu-prompt "Logout?" "bspc quit"
-
 # Reload sxhkd config file and restart bspwm
 alt + ctrl + r
     pkill -USR1 -x sxhkd; \

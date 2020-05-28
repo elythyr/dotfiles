@@ -7,9 +7,9 @@
 
 # Applications {{{
 
-# reboot/shutdown
-alt + {shift,ctrl} + BackSpace
-	dmenu-prompt {"Reboot?" "sudo -A reboot","Shutdown?" "sudo -A shutdown -h now"}
+# quit bspwm
+alt + shift + BackSpace
+    powermenu
 
 # make sxhkd reload its configuration files:
 alt + Escape
