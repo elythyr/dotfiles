@@ -39,20 +39,30 @@ URxvt.perl-ext-common:  default,resize-font,keyboard-select,clipboard
 URxvt.perl-ext: default,url-select
 
 ! Yankable URLs
-URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.keysym.M-u: builtin-string:
+URxvt.keysym.C-S-0x55: perl:url-select:select_next
 URxvt.url-select.launcher: /usr/bin/xdg-open
 URxvt.url-select.underline: true
 
 ! Keyboard select
 ! Activate the "normal" mode
-URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.C-Escape: perl:keyboard-select:activate
 ! Override the default backward search mode
-URxvt.keysym.M-s: perl:keyboard-select:search
+! URxvt.keysym.M-s: perl:keyboard-select:search
+URxvt.keysym.M-s: builtin-string:
+! Copy selection to clipboard too
+! Seems to work but when I try to copy in the terminal it freezes
+! With urxvtd it therfore freezes all my terminals!
+! URxvt.keyboard-select.clipboard: true
 
 ! Clipboard
-URxvt.keysym.M-c: perl:clipboard:copy
-URxvt.keysym.M-v: perl:clipboard:paste
+! Reset the original mappings
+URxvt.keysym.M-c: builtin-string:
+URxvt.keysym.M-v: builtin-string:
+! Need the hex value for "C" and "V" otherwise it does not work
+URxvt.keysym.C-S-0x43: perl:clipboard:copy
+URxvt.keysym.C-S-0x56: perl:clipboard:paste
 
 ! }}}
 
-! vim: ft=xdefaults fdm=marker
+! vim: ft=xdefaults fdm=marker cms=!\ %s
