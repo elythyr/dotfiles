@@ -1,8 +1,15 @@
 #!/bin/sh
 
-choice="$(echo -e " Log Out\n累 Restart\n Power Off" | rofi -dmenu -i -p 'Action' -lines 3 -width 12 $*)"
+# choice="$(echo -e " Log Out\n累 Restart\n Power Off" | rofi -dmenu -i -p 'Action' -lines 3 -width 12 $*)"
+choice="$(rofi -dmenu -i -p 'Action' -lines 4 -width 12 $* <<<' Lock Screen
+ Log Out
+累 Restart
+ \nPower Off')"
 
 case "$choice" in
+    *"Lock Screen")
+        loginctl lock-session
+        ;;
     *"Log Out")
         ~/.local/bin/logout
         ;;
