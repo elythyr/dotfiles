@@ -450,7 +450,7 @@ type = custom/text
 content = 
 content-font = ${fonts.nf-icons-small}
 
-click-left = ~/.config/polybar/scripts/powermenu.sh
+click-left = ~/.local/bin/powermenu -location 5 -yoffset -25 -xoffset -5 
 
 [module/udisks]
 type = custom/text

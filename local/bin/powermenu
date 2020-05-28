@@ -1,0 +1,15 @@
+#!/bin/sh
+
+choice="$(echo -e " Log Out\n累 Restart\n Power Off" | rofi -dmenu -i -p 'Action' -lines 3 -width 12 $*)"
+
+case "$choice" in
+    *"Log Out")
+        ~/.local/bin/logout
+        ;;
+    *"Restart")
+        reboot
+        ;;
+    *"Power Off")
+        shutdown
+        ;;
+esac
