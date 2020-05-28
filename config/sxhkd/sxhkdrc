@@ -8,32 +8,32 @@
 # Applications {{{
 
 # reboot/shutdown
-super + {shift,ctrl} + BackSpace
+alt + {shift,ctrl} + BackSpace
 	dmenu-prompt {"Reboot?" "sudo -A reboot","Shutdown?" "sudo -A shutdown -h now"}
 
 # make sxhkd reload its configuration files:
-super + Escape
+alt + Escape
     pkill -USR1 -x sxhkd
 
 # terminal emulator
-super + {_,shift + }Return
+alt + {_,shift + }Return
     {$TERMINAL,samedir}
 
 # program launcher
-super + @space
+alt + @space
     rofi -show run
 
 # open applications
 # b:    Browser
 # w:    VimWiki
-super + o ; {b,w}
+alt + o ; {b,w}
     { \
         $BROWSER, \
         vimwiki, \
     }
 
 # lock the screen
-super + shift + l
+super + l
     loginctl lock-session
 
 # }}}
