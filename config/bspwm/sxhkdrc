@@ -75,7 +75,8 @@ l, shift + h \
 
 # Thanks azerty keyboard ;)
 # Focus a desktop
-alt + {ampersand,eacute,quotedbl,apostrophe,parenleft,minus,egrave,underscore,ccedilla,agrave}
+# alt + {ampersand,eacute,quotedbl,apostrophe,parenleft,minus,egrave,underscore,ccedilla,agrave}
+alt + {1-9,0}
     bspc desktop --focus '^{1-9,10}'
 
 # Send a node to a desktop and follows it
@@ -99,7 +100,8 @@ alt + ctrl + {h,j,k,l}
     bspc node --presel-dir {west,south,north,east}
 
 # Preselect the ratio
-alt + ctrl + {ampersand,eacute,quotedbl,apostrophe,parenleft,minus,egrave,underscore,ccedilla}
+# alt + ctrl + {ampersand,eacute,quotedbl,apostrophe,parenleft,minus,egrave,underscore,ccedilla}
+alt + ctrl + {1-9}
     bspc node --presel-ratio 0.{1-9}
 
 # Cancel the preselection for the focused node
