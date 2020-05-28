@@ -1,6 +1,9 @@
 ! Enabled modi
 rofi.modi: run,window,ssh,drun
 
+! Enable fuzzy matching
+rofi.matching: fuzzy
+
 ! Window width
 rofi.width:                          50
 ! Number of lines
