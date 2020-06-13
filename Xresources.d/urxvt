@@ -33,6 +33,16 @@ URxvt.font: xft:Hack Nerd Font Mono:size=8
 
 ! }}}
 
+! Key bindings {{{
+
+! Fix Ctrl-Arrows code
+URxvt.keysym.Control-Up: \033[1;5A
+URxvt.keysym.Control-Down: \033[1;5B
+URxvt.keysym.Control-Right: \033[1;5C
+URxvt.keysym.Control-Left: \033[1;5D
+
+! }}}
+
 ! Extensions {{{
 
 URxvt.perl-ext-common:  default,resize-font,keyboard-select,clipboard
@@ -50,12 +60,10 @@ URxvt.keysym.C-Escape: perl:keyboard-select:activate
 ! Override the default backward search mode
 ! URxvt.keysym.M-s: perl:keyboard-select:search
 URxvt.keysym.M-s: builtin-string:
-! Copy selection to clipboard too
-! Seems to work but when I try to copy in the terminal it freezes
-! With urxvtd it therfore freezes all my terminals!
-! URxvt.keyboard-select.clipboard: true
 
 ! Clipboard
+! Copy selection to clipboard too
+URxvt.clipboard.autocopy: true
 ! Reset the original mappings
 URxvt.keysym.M-c: builtin-string:
 URxvt.keysym.M-v: builtin-string:
