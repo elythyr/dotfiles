@@ -16,3 +16,6 @@
 [submodule "fzf"]
 	path = fzf
 	url = https://github.com/junegunn/fzf.git
+[submodule "base16/base16-fzf"]
+	path = base16/base16-fzf
+	url = https://github.com/fnune/base16-fzf.git

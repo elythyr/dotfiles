@@ -112,6 +112,10 @@ source $ZSH/oh-my-zsh.sh
         [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
             eval "$("$BASE16_SHELL/profile_helper.sh")"
 
+    # For base16-fzf
+    [ -f $DOTFILES/base16/base16-fzf/bash/base16-tomorrow-night.config ] && source $DOTFILES/base16/base16-fzf/bash/base16-tomorrow-night.config
+
+
     [ -f $DOTFILES/fzf-git/functions.sh ] && source $DOTFILES/fzf-git/functions.sh
     [ -f $DOTFILES/fzf-git/key-binding.zsh ] && source $DOTFILES/fzf-git/key-binding.zsh
 
