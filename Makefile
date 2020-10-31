@@ -1,7 +1,7 @@
 .PHONY: deploy update-repository update-submodules update-submodules-remote update
-.PHONY: update-pip update-pynvim update-pman terminfo fonts
+.PHONY: update-pip update-pynvim update-pman terminfo fonts symfony
 
-deploy: update terminfo fonts
+deploy: update terminfo fonts symfony
 	./bin/deploy.sh
 
 update: update-repository update-submodules update-pip update-pynvim update-pman
@@ -52,3 +52,6 @@ ifeq ($(wildcard ~/.local/share/fonts/Ubuntu\ Mono*),)
 	&& fc-cache -fv
 endif
 
+symfony:
+	wget https://get.symfony.com/cli/installer -O - | bash \
+	&& ln -s "$HOME/.symfony/bin/symfony" "$HOME/.local/bin/symfony"
