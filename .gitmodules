@@ -6,7 +6,7 @@
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
 [submodule "vim"]
 	path = vim
-	url = git@github.com:elythyr/vim-config.git
+	url = git@github.com:camilledejoye/vim-config.git
 [submodule "base16/base16-shell"]
 	path = base16/base16-shell
 	url = https://github.com/chriskempson/base16-shell.git
