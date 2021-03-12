@@ -53,6 +53,7 @@
       zsh-autosuggestions
       zsh-syntax-highlighting
       timer
+      pass
     )
 
 source $ZSH/oh-my-zsh.sh
