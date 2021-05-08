@@ -66,10 +66,5 @@ alias gss='git stash push' # Alias for the old git stash save, so that gsp is gi
 alias gpu='git publish'
 
 alias c='composer'
-alias cc='composer check'
-alias composers='composer'
-alias cs='composer cs'
-alias csf='composer cs-fix'
-alias ct='composer test'
 
 alias most_used_commands="history | awk '{a[\$2]++}END{for(i in a){print a[i] \"s \" i}}' | sort -rn | head -20"
