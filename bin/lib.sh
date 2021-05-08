@@ -84,15 +84,19 @@ backup_conf_file() {
     fi
 
     echo
-    answer=$( ask_for_yes_or_no "Would you like to backup it first?" )
+    answer=$( ask_for_yes_or_no "The file $GRAY$1$STOP already exists, would you like to backup it first?" )
 
     if echo "$answer" | grep -iq "^y" ;then
         backup=$(mktemp "$1.XXXX")
         mv "$1" "$backup"
 
-        echo "Backed up as $GRAY$backup$STOP"
+        echo "${GRAY}$1${STOP} backed up as ${GRAY}$backup${STOP}"
+
+        return 0
     else
         echo "Not backed up."
+
+        return 1
     fi
 }
 
@@ -107,22 +111,34 @@ do_create_conf_file() {
 }
 
 create_conf_file() {
-    if ! ls "$2" >/dev/null 2>&1; then
-        do_create_conf_file "$1" "$2"
+    if ! backup_conf_file "$2"; then
+        answer=$( ask_for_yes_or_no "Do you want to overwrite it ?" )
+        if ! echo "$answer" | grep -iq "^y" ;then
+            echo "Add the following content to $GRAY$2$STOP:"
+            echo -n $BLUE
+            echo "$1"
+            echo -n $STOP
 
-        return 0
+            return 0
+        fi
     fi
 
-    answer=$( ask_for_yes_or_no "The file $GRAY$2$STOP already exists, do you want to overwrite it ?" )
-    if ! echo "$answer" | grep -iq "^y" ;then
-        echo "Add the following content to $GRAY$2$STOP:"
-        echo -n $BLUE
-        echo "$1"
-        echo -n $STOP
-
-        return 0
-    fi
-
-    backup_conf_file "$2"
     do_create_conf_file "$1" "$2"
+}
+
+copy_conf_file() {
+    if ! backup_conf_file "$2"; then
+        answer=$( ask_for_yes_or_no "Do you want to overwrite it ?" )
+        if ! echo "$answer" | grep -iq "^y" ;then
+            echo "File ${GRAY}$2${STOP} was not created."
+
+            return 0
+        fi
+    fi
+    
+    cp "$1" "$2"
+
+    echo "File ${GRAY}$2${STOP} was created."
+
+    return 1
 }
