@@ -14,7 +14,7 @@ export COMPOSER_BIN="$COMPOSER_HOME/vendor/bin"
 
 # Defautl programs
 export EDITOR="nvim"
-export TERMINAL="urxvtc"
+export TERMINAL="alacritty"
 export BROWSER="qutebrowser"
 
 # PATH

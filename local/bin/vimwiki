@@ -7,7 +7,7 @@ echoerr() {
 wikiCommand="nvim +packadd\ vimwiki +call\ vimwiki#base#goto_index\(2\)"
 
 case $TERMINAL in
-    alacritty) nameOption="class"; wikiCommand="-e $wikiCommand";;
+    alacritty) nameOption="--class"; wikiCommand="-e $wikiCommand";;
     termite) nameOption="--name"; wikiCommand="-e \"$wikiCommand\"";;
     kitty) nameOption="--name";;
     urxvt|urxvtc) nameOption="-name"; wikiCommand="-e $wikiCommand";;

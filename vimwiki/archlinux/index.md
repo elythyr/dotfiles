@@ -14,7 +14,7 @@
     - [bspwm](window-manager/bspwm)
     - Try Awesome Window Manager
 7. Terminal emulators
-    - Alacritty
+    - [Alacritty](terminal-emulators/alacritty)
 8. Utilities
     - [Desktop notifications](utilities/desktop-notifications)
     - [Brightness](utilities/brightness)
