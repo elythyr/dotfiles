@@ -1,6 +1,6 @@
 # Global {{{
 
-# Reload sxhkd config file and restart bspwm
+# Reload sxhkd config and restart bspwm
 alt + ctrl + r
     pkill -USR1 -x sxhkd; \
     bspc wm --restart
@@ -9,11 +9,11 @@ alt + ctrl + r
 
 # Layouts {{{
 
-# alternate between the tiled and monocle layout
+# Toggle monocle layout
 alt + m
     bspc desktop --layout next
 
-# set the window state
+# Switch window state to: Tiled, Pseudo Tiled, Floating, Fullscreen
 alt + {t,shift + t,s,f}
     bspc node --state {tiled,pseudo_tiled,floating,fullscreen}
 
@@ -21,44 +21,43 @@ alt + {t,shift + t,s,f}
 
 # Windows {{{
 
-# Close and kill
+# Close or kill a window
 alt + {_,shift + }q
   bspc node --{close,kill}
 
-# Focus or swap the node in the given direction
+# Move to the window in the given direction or swap it with the current one
 alt + {_,shift + }{h,j,k,l}
     bspc node --{focus,swap} {west,south,north,east}
 
-# Focus the next/previous node in the current desktop
+# Focus the next/previous window in the current desktop
 alt + {_,shift + }c
     bspc node --focus {next,prev}.local
 
-# Focus the last node in the current desktop
-# For azerty keyboard
-# alt + twosuperior
-# For qwerty keyboard
+# Focus the last window in the current desktop
 alt + grave
     bspc node --focus last.local
+# For azerty keyboard
+# alt + twosuperior
 
-# focus the older or newer node in the focus history
+# Focus the previous/next window in the history
 alt + ctrl + {o,i}
     bspc wm --record-history off; \
     bspc node {older,newer} --focus; \
     bspc wm --record-history on
 
-# Swap the current node and the biggest node of the desktop
+# Swap the current window with the biggest one in the current desktop
 alt + g
     bspc node --swap biggest.local
 
-# Focus the node for the given path jump
+# Focus the window for the given path jump
 alt + {p,b,comma,period}
     bspc node --focus @{parent,brother,first,second}
 
-# Set the node flags
+# Set a window's flags
 alt + ctrl + {m,x,y,z}
     bspc node --flag {marked,locked,sticky,private}
 
-# Expand or contract a window by moving one of its side outward/inward
+# Resize a window
 alt + r : { \
 h, shift + l, \
 j, shift + k, \
@@ -78,11 +77,11 @@ l, shift + h \
 
 # Thanks azerty keyboard ;)
 # Focus a desktop
-# alt + {ampersand,eacute,quotedbl,apostrophe,parenleft,minus,egrave,underscore,ccedilla,agrave}
 alt + {1-9,0}
     bspc desktop --focus '^{1-9,10}'
+# alt + {ampersand,eacute,quotedbl,apostrophe,parenleft,minus,egrave,underscore,ccedilla,agrave}
 
-# Send a node to a desktop and follows it
+# Send a window to a desktop and follows it
 alt + shift + {1-9,0}
     bspc node --to-desktop '^{1-9,10}' --follow
 
@@ -94,7 +93,7 @@ alt + Tab
 
 # Preselection {{{
 
-# Send the newest marked node to the newest preselected node
+# Send the newest marked or current window to the newest preselected spot
 alt + {_,shift + }y
     bspc node {newest.marked.local, focused} --to-node newest.!automatic.local
 
@@ -103,11 +102,11 @@ alt + ctrl + {h,j,k,l}
     bspc node --presel-dir {west,south,north,east}
 
 # Preselect the ratio
-# alt + ctrl + {ampersand,eacute,quotedbl,apostrophe,parenleft,minus,egrave,underscore,ccedilla}
 alt + ctrl + {1-9}
     bspc node --presel-ratio 0.{1-9}
+# alt + ctrl + {ampersand,eacute,quotedbl,apostrophe,parenleft,minus,egrave,underscore,ccedilla}
 
-# Cancel the preselection for the focused node
+# Cancel the preselection
 alt + ctrl + Escape
     bspc node --presel-dir cancel
 

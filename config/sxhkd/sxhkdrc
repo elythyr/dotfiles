@@ -7,32 +7,33 @@
 
 # Applications {{{
 
-# quit bspwm
+alt + F1
+    keybindings
+
+# Show the powermenu
 alt + shift + BackSpace
     powermenu
 
-# make sxhkd reload its configuration files:
+# Reload sxhkd configuration
 alt + Escape
     pkill -USR1 -x sxhkd
 
-# terminal emulator
+# Start a new terminal
 alt + {_,shift + }Return
     {$TERMINAL,samedir}
 
-# program launcher
+# Program launcher
 alt + @space
     rofi -show run
 
-# open applications
-# b:    Browser
-# w:    VimWiki
+# Applications shortcuts
 alt + o ; {b,w}
     { \
         $BROWSER, \
         vimwiki, \
     }
 
-# lock the screen
+# Lock the screen
 super + l
     loginctl lock-session
 
@@ -45,10 +46,10 @@ super + l
     brightnessctl set {5,10}%{-,+}
 
 # Control the volume
-# XF86AudioRaideVolume
 XF86Audio{Lower,Raise}Volume{_, + shift}
     pactl set-sink-volume @DEFAULT_SINK@ {-,+}{5,10}% >/dev/null 2>&1 || notify-send "Impossible to change the volume, check you sxhkd configuration."
 
+# Mute
 XF86AudioMute
     pactl set-sink-mute @DEFAULT_SINK@ toggle >/dev/null 2>&1 || notify-send "Impossible to change the volume, check you sxhkd configuration."
 
