@@ -35,6 +35,7 @@ set splitright
 set scrolloff=3
 set diffopt+=vertical
 set wildmenu
+set clipboard+=unnamedplus
 
 if has('termguicolors')
   set termguicolors
