@@ -34,7 +34,10 @@ alt + {_,shift + }c
     bspc node --focus {next,prev}.local
 
 # Focus the last node in the current desktop
-alt + twosuperior
+# For azerty keyboard
+# alt + twosuperior
+# For qwerty keyboard
+alt + grave
     bspc node --focus last.local
 
 # focus the older or newer node in the focus history
