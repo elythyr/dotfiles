@@ -51,7 +51,7 @@ ask_for_yes_or_no() {
 prompt_install() {
     answer=$( ask_for_yes_or_no "${GRAY}$1${STOP} is not installed. Would you like to install it?" )
 
-    if echo "$answer" | grep -iq "^y" ;then
+    if echo "$answer" | grep -iq "^y"; then
         # This could def use community support
         if [ -x "$(command -v apt-get)" ]; then
             echo "$1" | xargs sudo apt-get install -y
@@ -86,7 +86,7 @@ backup_conf_file() {
     echo
     answer=$( ask_for_yes_or_no "The file $GRAY$1$STOP already exists, would you like to backup it first?" )
 
-    if echo "$answer" | grep -iq "^y" ;then
+    if echo "$answer" | grep -iq "^y"; then
         backup=$(mktemp "$1.XXXX")
         mv "$1" "$backup"
 
