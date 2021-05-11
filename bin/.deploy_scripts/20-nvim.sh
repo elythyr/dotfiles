@@ -9,27 +9,6 @@ fi
 NVIMDIR="${XDG_CONFIG_HOME:-$HOME/.config}/nvim"
 NVIMRC="$NVIMDIR/init.vim"
 
-check_for_nvim_repository() {
-    if ! grep -rq neovim /etc/apt/; then
-        answer=$( ask_for_yes_or_no "The repository for neovim is not on your system, add it?" )
-
-        if echo "$answer" | grep -iq "^y"; then
-            answer=$( ask_for_yes_or_no "Do you want to use the latest version (unstable) ?" )
-            if echo "$answer" | grep -iq "^y"; then
-                sudo apt-add-repository ppa:neovim-ppa/unstable -y
-            else
-                sudo apt-add-repository ppa:neovim-ppa/stable -y
-            fi
-
-            sudo apt-get update
-
-            echo "The repository was properly added."
-        fi
-    else
-        echo "The repository is already in your system."
-    fi
-}
-
 prompt_install_python_module() {
     answer=$( ask_for_yes_or_no "The module is not installed, would you like to install it?" )
 
@@ -51,9 +30,6 @@ check_for_python_module() {
 section "Neovim"
 
 title "Installation"
-
-title "Repository" 2
-check_for_nvim_repository
 
 title "Neovim" 2
 check_for_software nvim neovim
