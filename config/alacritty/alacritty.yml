@@ -1,0 +1,14 @@
+mouse:
+  hide_when_typing: true
+
+window:
+  startup_mode: Fullscreen
+
+  # padding:
+  #   x: 5
+  #   y: 5
+
+key_bindings:
+  - { key: F11, action: ToggleFullscreen }
+  - { key: Return, mods: Shift, chars: "\x1b[13;2u" }
+  - { key: Return, mods: Control, chars: "\x1b[13;5u" }

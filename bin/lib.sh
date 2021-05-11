@@ -1,4 +1,5 @@
 DOTFILES="$(dirname $( cd "$( dirname "$0" )" ; pwd -P ))"
+XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
 
 BOLD="\e[1m"
 STOP="\e[0m"
@@ -70,6 +71,23 @@ prompt_install() {
     fi
 }
 
+check_for_repository() {
+    repository="${1}"
+
+    if ! grep -rq "$repository" /etc/apt/; then
+        answer=$( ask_for_yes_or_no "The repository ${GRAY}$repository${STOP} is not on your system, add it?" )
+
+        if echo "$answer" | grep -iq "^y"; then
+            sudo apt-add-repository "ppa:$repository" -y
+            sudo apt-get update
+
+            echo "The repository ${GRAY}$repository${STOP} was properly added."
+        fi
+    else
+        echo "The repository ${GRAY}$repository${STOP} is already in your system."
+    fi
+}
+
 check_for_software() {
     if ! [ -x "$(command -v $1)" ]; then
         prompt_install "${2:-$1}"
@@ -83,6 +101,7 @@ backup_conf_file() {
         return 0
     fi
 
+    question="${2:-Would you like to backup it first?}"
     echo
     answer=$( ask_for_yes_or_no "The file $GRAY$1$STOP already exists, would you like to backup it first?" )
 
@@ -141,4 +160,25 @@ copy_conf_file() {
     echo "File ${GRAY}$2${STOP} was created."
 
     return 1
+}
+
+symlink_conf_file() {
+    src="$DOTFILES/config/$1"
+    dest="$XDG_CONFIG_HOME/${2:-$1}"
+
+    if [ \( -L $dest -a  "$(readlink "$dest")" -ef "$src" \) -o \( "$dest" -ef "$src" \) ]; then
+        echo "The config file is already set up."
+
+        return 0
+    fi
+
+    if [ -f "$dest" ]; then
+        backup_conf_file "$dest" "The config file already exists, back it up?"
+    fi
+
+    mkdir -p "$(dirname "$dest")"
+
+    ln -sf "$src" "$dest"
+
+    echo "The config file ${GRAY}$dest${STOP} has been written."
 }
