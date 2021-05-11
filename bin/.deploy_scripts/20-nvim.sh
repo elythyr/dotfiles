@@ -34,7 +34,7 @@ prompt_install_python_module() {
     answer=$( ask_for_yes_or_no "The module is not installed, would you like to install it?" )
 
     if echo "$answer" | grep -iq "^y" ;then
-        python${2:-} -m pip install --user --upgrade pynvim
+        python${2:-} -m pip install --user --upgrade neovim
 
         echo "The module was properly installed."
     fi
