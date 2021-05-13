@@ -3,18 +3,21 @@ if exists('*packager#init')
 endif
 
 " The directory of fzf must also be in the runtimepath
-" execute 'set runtimepath+='. $DOTFILES .'/fzf'
-" already in the rtp
-" set rtp+=/usr/share/vim/vimfiles
+" Already in the rtp if installed with pacman
+if !filereadable('/usr/share/vim/vimfiles/plugin/fzf.vim')
+  " Otherwise use the version in the dotfiles
+  execute 'set runtimepath+='. $DOTFILES .'/fzf'
+endif
 
 " Search Files
-nmap <Leader>sf :GFiles<CR>
+nmap <silent> <Leader>sf :GFiles<CR>
+nmap <silent> <Leader>sF :Files<CR>
 
 " Search Buffers
-nmap <Leader>sb :Buffers<CR>
+nmap <silent> <Leader>sb :Buffers<CR>
 
 " Search Commits
-nmap <Leader>sc :Commits<CR>
+nmap <silent> <Leader>sc :Commits<CR>
 
 " To be able to pass options
 command! -bang -nargs=* -complete=dir RRg
