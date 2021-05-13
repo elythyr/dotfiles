@@ -1,0 +1,1 @@
+-layout fr -variant oss -option -option terminate:ctrl_alt_bksp -option grp:rctrl_rshift_toggle -option caps:escape
