@@ -72,3 +72,4 @@ settings:
       DEFAULT: https://duckduckgo.com/?q={}
       aw: https://wiki.archlinux.org?search={}
       ggl: https://google.com/search?q={}
+      gh: https://github.com/search?q={}
