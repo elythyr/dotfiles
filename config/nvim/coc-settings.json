@@ -58,7 +58,6 @@
         "<C-c>": "do:exit"
     },
     "diagnostic.displayByAle": false,
-    "snippets.trace": "verbose",
     "cursors.cancelKey": "<Esc>",
     "cursors.nextKey": "<C-j>",
     "cursors.previousKey": "<C-k>"
