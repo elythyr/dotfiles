@@ -16,6 +16,7 @@
 7. Terminal emulators
     - [Alacritty](terminal-emulators/alacritty)
 8. Utilities
+    - [OpenSSH](openssh)
     - [Desktop notifications](utilities/desktop-notifications)
     - [Brightness](utilities/brightness)
     - [Neovim](utilities/neovim)
