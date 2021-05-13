@@ -20,7 +20,7 @@ alt + Escape
 
 # Start a new terminal
 alt + {_,shift + }Return
-    {$TERMINAL,samedir}
+    {samedir,$TERMINAL}
 
 # Program launcher
 alt + @space
