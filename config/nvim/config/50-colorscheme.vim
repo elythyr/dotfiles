@@ -10,10 +10,6 @@ if 'base-16' == s:colorscheme
   endif
 
   if !has('gui_running') && 0 == &termguicolors
-    if !exists('g:base16_shell_path')
-      let g:base16_shell_path = $DOTFILES.'/base16/base16-shell/scripts'
-    endif
-
     let base16colorspace = 256
   endif
 

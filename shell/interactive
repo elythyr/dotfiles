@@ -97,20 +97,6 @@ alias ct='composer test'
 
 # }}}
 
-# Base16 shell {{{
-
-# # For base16-shell
-# # Uncomment while migrating toward a bare repo
-# # Not sure I want to keep it, I like the idea of having the same theme in
-# # my terminal and vim without too much efforts
-# # But it looks to slow things down quit a bit on old machine
-# BASE16_SHELL="$DOTFILES/base16-shell"
-# [ -n "$PS1" ] && \
-#     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-#         eval "$("$BASE16_SHELL/profile_helper.sh")"
-
-# }}}
-
 # MANPAGER {{{
 
 # Use bat
