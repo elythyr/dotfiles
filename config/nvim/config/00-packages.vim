@@ -4,9 +4,6 @@ if exists('*packager#init')
 
   call packager#add('kristijanhusak/vim-packager', { 'type': 'opt' })
 
-  call packager#add('scrooloose/nerdtree')
-  " call packager#add('Xuyuanp/nerdtree-git-plugin')
-
   call packager#add('git@github.com:elythyr/vim-cleanfold.git')
 
   " call packager#add('kana/vim-niceblock')
