@@ -2,12 +2,15 @@
 set pastetoggle=<F12>
 
 " Search {{{1
-  " To count the number of times the word under the cursor is present in the
-  " document
-  map ,* *<C-O>:%s///gn<CR>
+  " To count the number of times the word under the cursor is present
+  nmap <silent> <Leader>* *<C-o><Leader>n
 
   " To count the number of results for the last search
-  map ,n :%s///gn<CR>
+  nnoremap <silent> <Leader>n :let b:tmp_curpos = getpos('.') <BAR>
+    \ %s///gn<BAR>
+    \ nohl <BAR>
+    \ call setpos('.', b:tmp_curpos) <BAR>
+    \ unlet b:tmp_curpos<CR>
 
   " Search for selected text, forwards or backwards.
   " http://vim.wikia.com/wiki/Search_for_visually_selected_text
@@ -26,10 +29,9 @@ set pastetoggle=<F12>
 " 1}}}
 
 " Buffers {{{1
-  " Command mapping (:bq) to close the current buffer and go back to the
-  " previous one
-  " cmap bq :bp <BAR> :bd #
-  cnoreabbrev bq bp <BAR> bd #<CR>
+  " Delete the current buffer and open the alternate one in the current window
+  " To be used as a command :bq<CR>
+  cnoreabbrev <silent> bq b # <BAR> bd #
 
   " <C-^> is a real pain on azerty keaybords...
   nnoremap <C-h> <C-^>
@@ -41,6 +43,16 @@ set pastetoggle=<F12>
   inoremap <silent> <Leader>x <Esc>:x<CR>
   nnoremap <silent> <Leader>q :q<CR>
   inoremap <silent> <Leader>q <Esc>:q<CR>
+" 1}}}
+
+" Commands {{{1
+  cnoreabbrev f   find
+  cnoreabbrev sf  sfind
+  cnoreabbrev vsf vertical sfind
+  cnoreabbrev tf  tabfind
+  cnoreabbrev te  tabedit
+  cnoremap vst vsp term://
+  cnoremap spt sp term://
 " 1}}}
 
 " Folds {{{1
