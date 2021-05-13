@@ -6,22 +6,22 @@ if exists('*packager#init')
 
   call packager#add('git@github.com:elythyr/vim-cleanfold.git')
 
-  " call packager#add('kana/vim-niceblock')
+  call packager#add('kana/vim-niceblock')
   " call packager#add('kana/vim-smartinput')
   " call packager#add('kana/vim-smartword')
-  " call packager#add('kana/vim-textobj-user') " Require for textobj plugins
-  " call packager#add('kana/vim-textobj-function')
+  call packager#add('kana/vim-textobj-user') " Required for textobj plugins
+  call packager#add('kana/vim-textobj-function')
   " call packager#add('kana/vim-textobj-syntax')
   " call packager#add('kana/vim-textobj-indent')
 
-  " call packager#add('terryma/vim-multiple-cursors')
+  call packager#add('terryma/vim-multiple-cursors')
 
   " Equivalent of easy-align, I keep it until I decide which one I prefer
   " call packager#add('godlygeek/tabular')
 
-  " call packager#add('junegunn/vader.vim') " To launch the VimL tests
+  call packager#add('junegunn/vader.vim') " To launch the VimL tests
 
-  " call packager#add('vim-vdebug/vdebug', {'type': 'opt'})
+  call packager#add('vim-vdebug/vdebug', {'type': 'opt'})
 
   " call packager#add('benmills/vimux') " Could be interesting, I should check
   " it out when I will have some time
@@ -32,15 +32,13 @@ if exists('*packager#init')
   " https://github.com/2072/PHP-Indenting-for-VIm
   call packager#add('git@github.com:elythyr/php-foldexpr.vim.git')
 
-  " call packager#add('lumiliet/vim-twig')
+  call packager#add('lumiliet/vim-twig')
 
-  " call packager#add('elzr/vim-json') " Improved JSON handling
+  call packager#add('elzr/vim-json') " Improved JSON handling
 
-  " call packager#add('etdev/vim-hexcolor')
+  call packager#add('othree/csscomplete.vim')
 
-  " call packager#add('othree/csscomplete.vim')
-
-  " call packager#add('iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } })
+  call packager#add('iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } })
 
   call packager#add('git@github.com:elythyr/vim-sxhkdrc')
 
@@ -55,3 +53,5 @@ command! PackClean  packadd vim-packager | source $MYVIMRC
   \ | call packager#clean()
 command! PackStatus  packadd vim-packager | source $MYVIMRC
   \ | call packager#status()
+
+" vim: ts=2 sw=2 et fdm=marker
