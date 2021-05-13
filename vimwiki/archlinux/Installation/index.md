@@ -160,7 +160,7 @@ Configure the keyboard layout for Xorg, generate the config file `/etc/X11/xorg.
 localectl --no-convert set-x11-keymap fr,us "oss," "" terminate:ctrl_alt_bksp,grp:alt_space_toggle,caps:escape
 ```
 
-INFO: Could not run it during the install, will have to it in the configuration after the reboot I guess.
+INFO: Could not run it during the install, will have to do it in the configuration after the reboot I guess.
 I think it's because Xorg server was not started yet, try to start it manually next time.
 
 
