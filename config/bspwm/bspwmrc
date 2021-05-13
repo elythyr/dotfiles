@@ -6,7 +6,9 @@ $HOME/.local/bin/startup
 # Variables {{{
 
 borderWidth=1
-borderGap=-$borderWidth
+# For the no gaps mode
+# borderGap=-$borderWidth
+borderGap=8
 
 backgroundAlt="#373b41"
 blue="#81a2be"
