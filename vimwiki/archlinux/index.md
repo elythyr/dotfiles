@@ -26,5 +26,6 @@
     - [Dunst](utilities/dunst)
     - [Screen locker](utilities/screen-locker)
     - [UDisks](utilities/udisks)
+    - [Share keyboard over SSH](x2x)
 9. [Fonts](fonts)
 10. [Docker](docker)
