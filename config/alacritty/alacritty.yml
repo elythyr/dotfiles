@@ -1,6 +1,9 @@
 selection:
   save_to_clipboard: true
 
+mouse:
+  hide_when_typing: true
+
 window:
   padding:
     x: 2
@@ -15,3 +18,5 @@ key_bindings:
   # To enable <C-Enter> and <S-Enter> in vim
   - { key: Return,  mods: Shift,                         chars: "\x1b[13;2u"              }
   - { key: Return,  mods: Control,                       chars: "\x1b[13;5u"              }
+
+# vim: set ts=2 sw=2 et
