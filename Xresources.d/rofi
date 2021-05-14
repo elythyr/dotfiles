@@ -11,7 +11,7 @@ rofi.lines: 15
 ! Number of columns
 rofi.columns: 4
 ! Font to use
-rofi.font: Hack Nerd Font Mono 8
+rofi.font: Hack 10
 ! Location on screen    0 = middle of the screen
 rofi.location: 0
 ! Border width
