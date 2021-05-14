@@ -20,9 +20,7 @@ pgrep -x dunst >/dev/null 2>&1 || dunst &
 pgrep -x xss-lock >/dev/null 2>&1 || xss-lock -q -- sflock -f -misc-hack-medium-r-normal--0-800-0-0-m-0-iso8859-1 -b 'You shall not pass!' -h &
 
 # Start the daemon to auto mount USB drives
-# Disable udsikie because it consume 2% of my memory (my old laptoop have less than 2G)
-# So it disable auto mounting and notification on plug/mount (can be reactivated on faster computer)
-# udiskie &
+udiskie &
 
 # Run custom script to start polybar (starts in background so no need to do it)
 # Must be strated last, otherwise windows goes over it
