@@ -11,12 +11,12 @@ window:
 
 font:
   normal:
-    family: Hack Nerd Font Mono
-  size: 7
+    family: Hack
+  size: 10
 
 key_bindings:
   # To enable <C-Enter> and <S-Enter> in vim
   - { key: Return,  mods: Shift,                         chars: "\x1b[13;2u"              }
   - { key: Return,  mods: Control,                       chars: "\x1b[13;5u"              }
 
-# vim: set ts=2 sw=2 et
+# vim: ts=2 sw=2 et
