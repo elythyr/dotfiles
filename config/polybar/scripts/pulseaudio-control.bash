@@ -87,7 +87,8 @@ function getNickname() {
         nickname="${SINK_NICKNAMES[$sinkName]}"
         [ "Default" = "$nickname" ] && getJackSinkNickname "$sinkName"
     else
-        nickname="Sink #$1"
+        # nickname="Sink #$1"
+        nickname=""
     fi
 }
 
@@ -314,8 +315,8 @@ function output() {
         # echo "${ICON_FONT}${MUTED_COLOR}${MUTED_ICON}${END_FONT} ${curVol}% ${SINK_ICON}${nickname}${END_COLOR}"
         echo "${ICON_FONT}${MUTED_COLOR}${MUTED_ICON}${END_FONT}"
     else
-        # echo "${ICON_FONT}${MUTED_COLOR}${volIcon}${END_FONT}${END_COLOR} ${curVol}% ${SINK_ICON}${nickname}"
-        echo "${ICON_FONT}${MUTED_COLOR}${nickname}${END_FONT}${END_COLOR} ${curVol}%"
+        echo "${ICON_FONT}${MUTED_COLOR}${volIcon}${END_FONT}${END_COLOR} ${curVol}% ${SINK_ICON}${nickname}"
+        # echo "${ICON_FONT}${MUTED_COLOR}${nickname}${END_FONT}${END_COLOR} ${curVol}%"
     fi
 }
 
