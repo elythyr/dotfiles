@@ -33,11 +33,11 @@ alt + {_,shift + }{h,j,k,l}
 alt + {_,shift + }c
     bspc node --focus {next,prev}.local
 
+# azerty: alt + twosuperior
+# qwerty: alt + grave
 # Focus the last window in the current desktop
-alt + grave
+alt + twosuperior
     bspc node --focus last.local
-# For azerty keyboard
-# alt + twosuperior
 
 # Focus the previous/next window in the history
 alt + ctrl + {o,i}
@@ -76,10 +76,11 @@ l, shift + h \
 # Desktops {{{
 
 # Thanks azerty keyboard ;)
+# azerty: alt + {ampersand,eacute,quotedbl,apostrophe,parenleft,minus,egrave,underscore,ccedilla,agrave}
+# qwerty: alt + {1-9,0}
 # Focus a desktop
-alt + {1-9,0}
+alt + {ampersand,eacute,quotedbl,apostrophe,parenleft,minus,egrave,underscore,ccedilla,agrave}
     bspc desktop --focus '^{1-9,10}'
-# alt + {ampersand,eacute,quotedbl,apostrophe,parenleft,minus,egrave,underscore,ccedilla,agrave}
 
 # Send a window to a desktop and follows it
 alt + shift + {1-9,0}
