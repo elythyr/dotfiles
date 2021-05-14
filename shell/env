@@ -17,6 +17,9 @@ export EDITOR="nvim"
 export TERMINAL="alacritty"
 export BROWSER="qutebrowser"
 
+# For the ssh-agent to work
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
 # PATH
 . ~/.shell/functions.sh
 
