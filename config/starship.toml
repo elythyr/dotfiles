@@ -1,0 +1,2 @@
+# Increase the timeout a bit beacuse I have a bad connection
+command_timeout=1000
