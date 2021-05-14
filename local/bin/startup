@@ -3,6 +3,9 @@
 # Run sxhkd only if not already running
 pgrep -x sxhkd >/dev/null 2>&1 || sxhkd "/home/cdejoye/.config/bspwm/sxhkdrc" &
 
+# Load the first detected profile
+[ $(command -v autorandr) ] && autorandr -c
+
 # Run the compositor for transparent window
 # pgrep -x picom >/dev/null 2>&1 || picom -b
 
