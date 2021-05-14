@@ -85,6 +85,8 @@
     default = simple
 [merge]
     tool = fugitive
+[rebase]
+    autoStash = true
 [mergetool "fugitive"]
     cmd = nvim -c \"Gdiff!\" \"$MERGED\"
 [grep]
