@@ -112,3 +112,5 @@ alt + ctrl + Escape
     bspc node --presel-dir cancel
 
 # }}}
+
+# vim: fdm=marker

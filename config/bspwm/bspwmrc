@@ -1,8 +1,5 @@
 #! /bin/sh
 
-# Starts programs
-$HOME/.local/bin/startup
-
 # Variables {{{
 
 borderWidth=1
@@ -28,10 +25,10 @@ bspc config border_width $borderWidth
 bspc config window_gap $borderGap
 for side in top right bottom left ; do
     # To have the borders on the edges of the screen
-	# bspc config ${side}_padding $borderWidth
+    # bspc config ${side}_padding $borderWidth
 
     # Removes the borders on the edges of the screen
-	bspc config ${side}_padding 0
+    bspc config ${side}_padding 0
 done
 
 # }}}
@@ -76,7 +73,21 @@ bspc config gapless_monocle true
 
 bspc rule -a *:VimWiki desktop='^10' locked=true follow=true
 bspc rule -a qutebrowser desktop='^2' follow=true
+bspc rule -a Pavucontrol state=floating
 
 # }}}
+
+# Mouse {{{
+
+# To adapt in order to match the modifier used in sxhkd
+# mod1 = alt
+# You can use `xmodmap` to see which modifier is which key
+# This is used to move/resize floating windows
+bspc config pointer_modifier mod1
+
+# }}}
+
+# Starts programs
+$HOME/.local/bin/startup
 
 # vim: fdm=marker
