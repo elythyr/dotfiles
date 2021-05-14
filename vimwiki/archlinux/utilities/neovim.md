@@ -12,20 +12,32 @@ For the nightly builds:
 yay -S neovim-nightly
 ```
 
-## Modules
+## Providers
 
-Python module:
+### Python
+
+Python 2 is deprecated, the package `python2-pynvim` has some missing dependencies
+and can't be installed anymore.
+I'll try without it and if something seems broken I might try installing it with `pip` directly.
+
+For Python 3
 ```sh
 pacman -S python-pynvim
 ```
 
-Python2 module (not sure it still required but just in case):
+### Node.js
+
+This will be required by CoC, to enable it:
 ```sh
-yay -S python2-pynvim
+pacman -S nodejs yarn
+
+# To install the provider
+yarn global add neovim
 ```
 
 ## Clipboard
 
+To be able to copy/paste from the X11 clipboard:
 ```sh
 pacman -S xclip
 ```
