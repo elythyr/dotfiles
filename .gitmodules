@@ -19,6 +19,3 @@
 [submodule "password-store"]
 	path = password-store
 	url = git@github.com:camilledejoye/password-store.git
-[submodule "zsh/pure"]
-	path = zsh/pure
-	url = https://github.com/sindresorhus/pure.git

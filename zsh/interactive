@@ -61,66 +61,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Prompt {{{
 
-# Pure {{{
-
-# Pure is really faster when it comes to dealing with git status information for example
-# Since it matches my own custom prompt I got no reason to not use it.
-
-# set ZSH_THEME to "" in order to use pure and load it after sourcing oh-my-zhs
-fpath+="$DOTFILES/zsh/pure"
-
-# Use a lighter gray than the default, make it more readable
-zstyle :prompt:pure:user color 8
-zstyle :prompt:pure:host color 8
-zstyle :prompt:pure:git:action color 8
-
-# The branch name was a dark gray like the action
-# The action is secondary for me, but the branch name is important
-# So I need a more visible colors
-zstyle :prompt:pure:git:branch color 5
-
-# If it's dirty then it's an issue, so red
-# Commits should be small, so frequents
-# So the repository should not be in this state often
-zstyle :prompt:pure:git:dirty color 1
-
-# Was using mangenta (5) but it make more sens to use green to me
-# Also green is the "secondary" color of my theme
-zstyle :prompt:pure:prompt:success color 2
-
-# To show the stash status in the prompt
-zstyle :prompt:pure:git:stash show yes
-
-# Show the execution time of a command as soon as it exceeds 1 second
-PURE_CMD_MAX_EXEC_TIME=1
-
-# }}}
-
-# zsh-vim-mode {{{
-
-# When I tried without oh-my-zsh I had to disable the mode tracking
-# But with oh-my-zsh it seems to works, I just have to configure it after
-# sourcing oh-my-zsh.sh
-
-# Disable the tracking of the current mode (insertion, normal, select, replace, etc)
-# from the zsh-vim-mode plugin since it conflicts with pure
-# VIM_MODE_TRACK_KEYMAP=no
-
-# Vim mode indicator
-MODE_INDICATOR_VIINS=''
-MODE_INDICATOR_VICMD='%F{10}❮%F{2}NORMAL❮%f'
-MODE_INDICATOR_REPLACE='%F{9}❮%F{1}REPLACE❮%f'
-MODE_INDICATOR_SEARCH='%F{13}❮%F{5}SEARCH❮%f'
-MODE_INDICATOR_VISUAL='%F{12}❮%F{4}VISUAL❮%f'
-MODE_INDICATOR_VLINE='%F{12}❮%F{4}V-LINE❮%f'
-
-# }}}
-
-# Load and initialize the prompt system
-autoload -U promptinit; promptinit
-
-# Use pure as prompt
-prompt pure
+eval "$(starship init zsh)"
 
 # }}}
 
