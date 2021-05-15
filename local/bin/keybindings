@@ -3,5 +3,5 @@
 config_dir=${XDG_CONFIG_HOME:-~/.config}
 
 awk '/^[a-z]/ && last {print $0,"\t",last} {last=""} /^#/{last=$0}' "$config_dir/sxhkd/sxhkdrc" "$config_dir/bspwm/sxhkdrc" \
-    | column -t -s $'\t' \
+    | column -t -s $'\t' -E 1 \
     | rofi -dmenu -i -p "Keybindings" -markup-rows -no-show-icons -columns 1
