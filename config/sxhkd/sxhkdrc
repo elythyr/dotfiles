@@ -27,9 +27,10 @@ alt + @space
     rofi -show run
 
 # Applications shortcuts
-alt + o ; {b,w}
+alt + o ; {b,e,w}
     { \
         $BROWSER, \
+        edit-config, \
         vimwiki, \
     }
 

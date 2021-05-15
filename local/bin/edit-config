@@ -1,0 +1,42 @@
+#!/bin/bash
+
+set -euo pipefail
+
+config_dir="${XDG_CONFIG_HOME:-$HOME/.config}"
+declare -A files
+files["alacritty"]="$config_dir/alacritty/alacritty.yml"
+files["bat"]="$config_dir/bat/config"
+files["bspwm: config"]="$config_dir/bspwm/bspwmrc"
+files["bspwm: mappings"]="$config_dir/bspwm/sxhkdrc"
+files["dunst"]="$config_dir/dunst/dunstrc"
+files["vimrc"]="$config_dir/nvim/init.vim"
+files["vim config directory"]="$config_dir/nvim/config/"
+files["picom"]="$config_dir/picom/picom.conf"
+files["polybar"]="$config_dir/polybar/config"
+files["qutebrowser"]="$config_dir/qutebrowser/autoconfig.py"
+files["rcm"]="$config_dir/ranger/rc.conf"
+files["starship"]="$config_dir/starship.toml"
+files["sxhkd"]="$config_dir/sxhkd/sxhkdrc"
+files["user services"]="$config_dir/systemd/user/"
+
+IFS=$'\n'
+formated=()
+for name in "${!files[@]}"; do
+  formated+=($(printf "%s\t%s" "$name" "${files["$name"]#$config_dir/}"))
+done
+
+# `column` generates a table with spaces so to retrieve the "first" part with `awk`
+# it's easier to remove the last one with `$NF=""` and print everything
+# But it leaves a trailing space at then end, that we remove with `sed`
+choice=$(
+  printf '%s\n' "${formated[@]}" | \
+  sort | \
+  column -t -s $'\t' | \
+  rofi -dmenu -i -p 'Edit' -columns 1 | \
+  awk '$NF=""; {print $0}' | \
+  sed "s/\s\+$//"
+)
+
+$TERMINAL -e $EDITOR "${files["$choice"]}"
+
+# vim: ts=2 sw=2 et
