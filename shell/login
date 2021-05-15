@@ -1,2 +1,4 @@
+# Register default keys into the agent
+ssh-add
 
 # vim: ft=sh
