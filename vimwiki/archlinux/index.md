@@ -1,7 +1,7 @@
 # Arch Linux
 
 1. [Installation](Installation/index)
-2. [Configuration](configuration/index)
+2. Configuration
     - [SSH](configuration/ssh)
 3. [Pacman](Pacman/index)
     - [Reflector](Pacman/Reflector)
