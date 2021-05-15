@@ -1,32 +1,37 @@
-# .dotfiles
+# Dotfiles
 
 Yet another dotiles repository ;)
+I wanted to gave a try to [rcm](https://github.com/thoughtbot/rcm).
 
-## Installation
+## Setting it up
 
-Clone as a bare repository, the destination must not be changed:
+Install `rcm` which is in the AUR:
 ```sh
-git clone --bare git@github.com:elythyr/dotfiles.git ~/.dotfiles
+yay -S rcm-git
 ```
 
-Declare an alias to help to manipulate the repository:
+Clone this repository:
 ```sh
-alias dotfiles="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+# Clone and initialize all submodules
+git clone git@github.com:camilledejoye/dotfiles -b rcm --recurse .dotfiles
+
+# Or select only some, for instance I don't need fzf submodule on Arch
+git clone git@github.com:camilledejoye/dotfiles \
+  -b rcm \
+  --recurse-submodules=oh-my-zsh \
+  --recurse-submodules=zsh/oh-my-zsh/plugins/zsh-autosuggestions \
+  --recurse-submodules=zsh/oh-my-zsh/plugins/zsh-syntax-highlighting \
+  --recurse-submodules=zsh/oh-my-zsh/plugins/zsh-vim-mode \
+  .dotfiles
 ```
 
-Checkout the files in the home directory, **use the bare branch**:
+Deploy the dotiles onto the host:
 ```sh
-cd
-dotfiles checkout bare
+# Force overwrite, perfect for a first install
+rcup -f
 ```
 
-In case of errors caused by the override of some files just move them and deal with conflicts later:
-```sh
-mv conflicting-file conflicting-file.bak
-diff conflicting-file conflicting-file.bak
+Install Neovim plugins:
 ```
-
-Ingore untracked files, so the status won't be polluted:
-```sh
-dotfiles config status.showUntrackedFiles no
+v -c PackInstall
 ```
