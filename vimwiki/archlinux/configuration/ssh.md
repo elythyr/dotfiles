@@ -16,7 +16,7 @@ sudo systemctl enable sshd
 
 To remember the SSH keys and provide them automatically.
 
-We need to run the deamon for it work.
+We need to run the daemon for it work.
 It's possible to use systemd to start it automatically.
 
 Create the service:
@@ -38,12 +38,30 @@ WantedBy=default.target
 
 Export the necessary environment when initializing a login shell:
 ```sh
-# ~/.dotfiles/shell/login
+# ~/.shell/env
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+```
+
+Register the default keys on login:
+```sh
+# ~/.shell/login
+ssh-add
 ```
 
 Enable and start the service:
 ```sh
-systemctl --users enable ssh-agent.service
-systemctl --users start ssh-agent.service
+systemctl --users enable --now ssh-agent.service
+```
+
+### Add a GUI askpass
+
+To be able to register a key with a passphrase the login script will need a GUI askpass:
+```sh
+pacman -S gnome-ssh-askpass2
+```
+
+Then configure the system to use it when no TTY is available:
+```sh
+# ~/.shell/env
+export SSH_ASKPASS=/usr/lib/ssh/gnome-ssh-askpass2
 ```
