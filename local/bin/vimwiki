@@ -1,17 +1,3 @@
 #!/bin/sh
 
-echoerr() {
-    printf "%s\n" "$*" >&2
-}
-
-wikiCommand="nvim +packadd\ vimwiki +call\ vimwiki#base#goto_index\(2\)"
-
-case $TERMINAL in
-    alacritty) nameOption="--class"; wikiCommand="-e $wikiCommand";;
-    termite) nameOption="--name"; wikiCommand="-e \"$wikiCommand\"";;
-    kitty) nameOption="--name";;
-    urxvt|urxvtc) nameOption="-name"; wikiCommand="-e $wikiCommand";;
-    *) echoerr "Dot know the terminal emulator '$TERMINAL', update the script $0"; exit 1;;
-esac
-
-eval $TERMINAL $nameOption VimWiki $wikiCommand
+terminal-open --name VimWiki "nvim +packadd\ vimwiki +call\ vimwiki#base#goto_index\(2\)"

@@ -1,0 +1,45 @@
+#!/bin/sh
+
+set -euo pipefail
+
+echoerr() {
+    printf "%s\n" "$*" >&2
+}
+
+name_opt="--name"
+cmd_opt="-e"
+opts=""
+cmd=""
+
+case $TERMINAL in
+  alacritty) name_opt="--class"; ;;
+  termite) cmd_opt="'$cmd'" ;;
+  kitty) ;;
+  urxvt|urxvtc) name_opt="-name" ;;
+  *) echoerr "Terminal emulator '$TERMINAL' not managed, update the script $0"; exit 1;;
+esac
+
+while [ -n "${1-}" ]; do
+  case "$1" in
+    -n|--name)
+      [[ -n "$opts" ]] && opts+=" "
+      opts+=" $name_opt \"$2\""; shift ;;
+    --)
+      shift # The double dash makes them parameters
+
+      # Use $@ to retrieve the remaining arguments which are the command to execute
+      cmd="${@:-$cmd}"
+
+      break
+      ;;
+    *)
+      [[ -n "$cmd" ]] && cmd+=" "
+      cmd+="$1"
+      ;;
+  esac
+  shift
+done
+
+eval " $TERMINAL $opts $cmd_opt $cmd"
+
+# vim: ts=2 sw=2 et

@@ -37,6 +37,6 @@ choice=$(
   sed "s/\s\+$//"
 )
 
-$TERMINAL -e $EDITOR "${files["$choice"]}"
+terminal-open $EDITOR "${files["$choice"]}"
 
 # vim: ts=2 sw=2 et
