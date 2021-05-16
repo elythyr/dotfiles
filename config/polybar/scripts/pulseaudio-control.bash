@@ -13,7 +13,7 @@ AUTOSYNC="yes"  # All programs have the same volume if enabled
 VOLUME_ICONS=(    )  # Volume icons array, from lower volume to higher
 MUTED_ICON=婢  # Muted icon
 MUTED_COLOR="%{F#373b41}"  # Color when the audio is muted
-ICON_COLOR="$MUTED_COLOR"  # Color for the icons
+ICON_COLOR="%{F#b4b7b4}"  # Color for the icons
 ICON_FONT="%{T6}" # Font to use for the icons
 NOTIFICATIONS="yes"  # Notifications when switching sinks if enabled
 SINK_ICON=""  # Icon always shown to the left of the default sink names
@@ -315,8 +315,8 @@ function output() {
         # echo "${ICON_FONT}${MUTED_COLOR}${MUTED_ICON}${END_FONT} ${curVol}% ${SINK_ICON}${nickname}${END_COLOR}"
         echo "${ICON_FONT}${MUTED_COLOR}${MUTED_ICON}${END_FONT}"
     else
-        echo "${ICON_FONT}${MUTED_COLOR}${volIcon}${END_FONT}${END_COLOR} ${curVol}% ${SINK_ICON}${nickname}"
-        # echo "${ICON_FONT}${MUTED_COLOR}${nickname}${END_FONT}${END_COLOR} ${curVol}%"
+        echo "${ICON_FONT}${ICON_COLOR}${volIcon}${END_FONT}${END_COLOR} ${curVol}% ${SINK_ICON}${nickname}"
+        # echo "${ICON_FONT}${ICON_COLOR}${nickname}${END_FONT}${END_COLOR} ${curVol}%"
     fi
 }
 

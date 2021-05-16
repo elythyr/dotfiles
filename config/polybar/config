@@ -36,6 +36,7 @@ foreground-alt = ${xrdb:color19:#373b41}
 primary = ${colors.blue}
 secondary = ${colors.green}
 alert = ${colors.red}
+icon = ${colors.light-gray}
 
 [fonts]
 text = 1
@@ -48,7 +49,7 @@ fa-solid-big = 3
 bottom = true
 monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 18
+height = 24
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0.0
@@ -78,9 +79,9 @@ font-5 = "Symbols Nerd Font:pixelsize=10;1"
 font-6 = "Symbols Nerd Font:pixelsize=8;1"
 
 modules-left = bspwm
-; modules-center = mpd
+modules-center = date
 ; modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
-modules-right = memory cpu wlan eth battery pulseaudio-control date udisks
+modules-right = memory cpu wlan eth battery pulseaudio-control udisks
 
 tray-position = right
 tray-padding = 2
@@ -121,7 +122,7 @@ type = internal/xkeyboard
 blacklist-0 = num lock
 
 format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
+format-prefix-foreground = ${colors.icon}
 format-prefix-underline = ${colors.secondary}
 
 label-layout = %layout%
@@ -242,7 +243,7 @@ type = internal/cpu
 interval = 2
 format-prefix = ""
 format-prefix-font = ${fonts.nf-icons}
-format-prefix-foreground = ${colors.foreground-alt}
+format-prefix-foreground = ${colors.icon}
 format-underline = ${colors.alert}
 label = %percentage:2%%
 ; format = <label> <ramp-coreload>
@@ -264,7 +265,7 @@ type = internal/memory
 interval = 2
 format-prefix = ""
 format-prefix-font = ${fonts.fa-solid-big}
-format-prefix-foreground = ${colors.foreground-alt}
+format-prefix-foreground = ${colors.icon}
 format-underline = ${colors.primary}
 label = " %percentage_used%%"
 
@@ -275,7 +276,7 @@ interval = 3.0
 
 format-connected = <label-connected>
 format-connected-font = ${fonts.fa-solid-small}
-format-connected-foreground = ${colors.foreground-alt}
+format-connected-foreground = ${colors.icon}
 format-connected-underline = ${colors.purple}
 label-connected = " %essid%"
 label-connected-font = 1
@@ -293,12 +294,12 @@ format-connected-underline = ${colors.purple}
 ; ; Symbol + infomation
 ; format-connected-prefix = " "
 ; format-connected-prefix-font = 6
-; format-connected-prefix-foreground = ${colors.foreground-alt}
+; format-connected-prefix-foreground = ${colors.icon}
 ; label-connected = %local_ip%
 
 ; Only the symbol
 format-connected = "%{T6}%{T-}"
-format-connected-foreground = ${colors.foreground-alt}
+format-connected-foreground = ${colors.icon}
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
@@ -318,9 +319,9 @@ time-alt = %H:%M:%S
 
 ; format-prefix = 
 ; format-prefix-font = ${fonts.fa-solid-small}
-; format-prefix-foreground = ${colors.foreground-alt}
+; format-prefix-foreground = ${colors.icon}
 ; format-underline = #0a6cf5
-format-underline = ${colors.secondary}
+; format-underline = ${colors.secondary}
 
 label = %date%%time%
 
@@ -406,7 +407,7 @@ format-discharging-underline = ${self.format-charging-underline}
 
 format-full-prefix = 
 format-full-prefix-font = ${fonts.nf-icons}
-format-full-prefix-foreground = ${colors.foreground-alt}
+format-full-prefix-foreground = ${colors.icon}
 format-full-underline = ${self.format-charging-underline}
 
 animation-charging-0 = 
@@ -417,7 +418,7 @@ animation-charging-4 = 
 animation-charging-5 = 
 animation-charging-6 = 
 animation-charging-font = ${fonts.nf-icons}
-animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-foreground = ${colors.icon}
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
@@ -429,7 +430,7 @@ ramp-capacity-6 = 
 ramp-capacity-7 = 
 ramp-capacity-8 = 
 ramp-capacity-9 = 
-ramp-capacity-foreground = ${colors.foreground-alt}
+ramp-capacity-foreground = ${colors.icon}
 
 [module/temperature]
 type = internal/temperature
@@ -448,7 +449,7 @@ label-warn-foreground = ${colors.secondary}
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
-ramp-foreground = ${colors.foreground-alt}
+ramp-foreground = ${colors.icon}
 
 [module/powermenu]
 type = custom/text
