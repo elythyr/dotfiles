@@ -16,6 +16,3 @@
 [submodule "zsh/plugins/zsh-vim-mode"]
 	path = zsh/oh-my-zsh/plugins/zsh-vim-mode
 	url = https://github.com/softmoth/zsh-vim-mode
-[submodule "password-store"]
-	path = password-store
-	url = git@github.com:camilledejoye/password-store.git
