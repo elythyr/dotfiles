@@ -20,7 +20,7 @@ pass init {KEY}
 
 ```sh
 gpg --export {KEY} > public.key
-gpg --export {key} > private.key
+gpg --export-secret-keys {key} > private.key
 ```
 
 ### Importing keys
