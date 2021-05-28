@@ -25,6 +25,10 @@ pgrep -x xss-lock >/dev/null 2>&1 || xss-lock -q -- sflock -f -misc-hack-medium-
 # Start the daemon to auto mount USB drives
 pgrep -x udiskie >/dev/null 2>&1 || udiskie -s &
 
+# Define the default cursor shape
+# Needed to have to correct cursor icon on the desktops and try icons
+xsetroot -cursor_name left_ptr
+
 # Run custom script to start polybar (starts in background so no need to do it)
 # Must be strated last, otherwise windows goes over it
 $HOME/.config/polybar/launch.sh

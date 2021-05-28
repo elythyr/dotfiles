@@ -1,5 +1,6 @@
-#include ".Xresources.d/xft"
 #include ".Xresources.d/colors"
+#include ".Xresources.d/cursor"
 #include ".Xresources.d/urxvt"
+#include ".Xresources.d/xft"
 
 ! vim: cms=!\ %s fdm=marker
