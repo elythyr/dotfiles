@@ -13,7 +13,13 @@ if 'base-16' == s:colorscheme
     let base16colorspace = 256
   endif
 
-  colorscheme base16-tomorrow-night
+  let s:colorscheme_file = g:my_vim_dir .'/colorscheme.vim'
+  if (filereadable(s:colorscheme_file))
+      execute 'source ' s:colorscheme_file
+  else
+      colorscheme base16-tomorrow-night
+  endif
+
   call Base16hi('Comment', '', '', '', '', 'italic')
 endif
 

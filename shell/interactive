@@ -28,6 +28,8 @@ alias v='nvim'
 
 alias m='make'
 
+alias bm='base16-manager'
+
 # }}}
 
 # PHP {{{
@@ -125,6 +127,13 @@ if command -v tmux >/dev/null 2>&1; then
         fi
     fi
 fi
+
+# }}}
+
+# fzf {{{
+
+# Load fzf colors
+[ -f ~/.fzf.colors ] && source ~/.fzf.colors
 
 # }}}
 

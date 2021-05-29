@@ -1,14 +1,14 @@
-let s:my_vim_dir = fnamemodify(resolve(expand('<sfile>')), ':p:h')
+let g:my_vim_dir = fnamemodify(resolve(expand('<sfile>')), ':p:h')
 
 " If running vim, update the runtimepath to be able to use the plugins
 if !has('nvim')
-  execute 'set runtimepath^=' . s:my_vim_dir
-  execute 'set runtimepath+=' . s:my_vim_dir . '/after'
+  execute 'set runtimepath^=' . g:my_vim_dir
+  execute 'set runtimepath+=' . g:my_vim_dir . '/after'
   let &packpath = &runtimepath
 endif
 
 " To add a personal templates directory to the runtimepath
-execute 'set runtimepath+=' . s:my_vim_dir . '/templates'
+execute 'set runtimepath+=' . g:my_vim_dir . '/templates'
 
 let mapleader = ','
 
@@ -45,10 +45,8 @@ if has('nvim')
 endif
 
 " Autoload all config files
-for s:config_file in glob(s:my_vim_dir . '/config/*.vim', v:false, v:true)
+for s:config_file in glob(g:my_vim_dir . '/config/*.vim', v:false, v:true)
   execute 'source ' s:config_file
 endfor
-
-unlet s:my_vim_dir
 
 " vim: ts=2 sw=2 et fdm=marker
