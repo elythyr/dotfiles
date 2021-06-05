@@ -8,7 +8,7 @@ if exists('*packager#init')
   call packager#add('sniphpets/sniphpets-postfix-codes')
   call packager#add('sniphpets/sniphpets')
 
-  call packager#add('git@github.com:elythyr/pdv', {'branch': 'improvements'})
+  call packager#add('camillededjoye/pdv', {'branch': 'improvements'})
   call packager#add('tobyS/vmustache')
 endif
 

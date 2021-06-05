@@ -1,5 +1,5 @@
 if exists('*packager#init')
-  call packager#add('git@github.com:elythyr/vim-test', {'branch': 'dev'})
+  call packager#add('camillededjoye/vim-test', {'branch': 'dev'})
 endif
 
 " Disabled the possibility to run a test from it's source file
