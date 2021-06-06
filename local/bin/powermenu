@@ -1,7 +1,7 @@
 #!/bin/sh
 
-# choice="$(echo -e " Log Out\n累 Restart\n Power Off" | rofi -dmenu -i -p 'Action' -lines 3 -width 12 $*)"
-choice="$(rofi -dmenu -i -p 'Action' -lines 4 -width 15 $* <<<' Lock Screen
+# I must specify the font to have the correct glyph for lock screen and poweroff
+choice="$(rofi -dmenu -font "Font Awesome 5 Free 10" -i -p 'Action' -lines 4 -width 15 $* <<<' Lock Screen
  Log Out
  Restart
  Power Off')"
