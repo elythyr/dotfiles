@@ -35,11 +35,20 @@
 *color6:       base0C
 *color7:       base05
 
-*color8:       base03
-*color9:       base09
-*color10:      base01
-*color11:      base02
-*color12:      base04
-*color13:      base06
-*color14:      base0F
-*color15:      base07
+! Bright colors took from the default Alacritty theme
+*color8:       #666666
+*color9:       #d54e53
+*color10:      #b9ca4a
+*color11:      #e7c547
+*color12:      #7aa6da
+*color13:      #c397d8
+*color14:      #70c0b1
+*color15:      #eaeaea
+! *color8:       base03
+! *color9:       base09
+! *color10:      base01
+! *color11:      base02
+! *color12:      base04
+! *color13:      base06
+! *color14:      base0F
+! *color15:      base07

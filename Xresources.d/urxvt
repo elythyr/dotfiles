@@ -26,10 +26,10 @@ URxvt.secondaryScroll: 0
 
 ! Fonts {{{
 
-URxvt.font: xft:Hack Nerd Font Mono:size=8
+URxvt.font: xft:Hack:size=10
 
 ! Characters feels a little bit so far from each other
-! URxvt.letterSpace: -1
+URxvt.letterSpace: -1
 
 ! }}}
 
