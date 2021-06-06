@@ -69,12 +69,17 @@ c.url.searchengines = {
     'aw': 'https://wiki.archlinux.org?search={}',
     'ggl': 'https://google.com/search?q={}',
     'gh': 'https://github.com/search?q={}',
-    'tr': 'https://translate.google.com/?sl=auto&tl=en&text={}%0A&op=translate',
+    'tr': 'https://translate.google.com/?sl=en&tl=fr&text={}%0A&op=translate',
 }
 
 c.colors.webpage.bg = None
 
 c.colors.webpage.preferred_color_scheme = 'dark'
+
+# Unbind weird mappings (at least to me)
+config.unbind('J') # Next tab
+config.unbind('K') # Previous Tab
+config.unbind('<Ctrl-w>') # Unbind closing window mapping
 
 # Bindings for normal mode
 config.bind('0', 'scroll-to-perc --horizontal 0')
@@ -84,9 +89,20 @@ config.bind('<Ctrl+e>', 'scroll down')
 config.bind('<Ctrl+y>', 'scroll up')
 config.bind('<Ctrl+o>', 'back')
 config.bind('<Ctrl+i>', 'forward')
-config.unbind('J')
 config.bind('gT', 'tab-prev')
 config.bind('gt', 'tab-next')
+config.bind('<Ctrl-w>H', 'tab-move -')
+config.bind('<Ctrl-w>L', 'tab-move +')
+config.bind('<Ctrl-&>', 'tab-select 1')
+config.bind('<Ctrl-é>', 'tab-select 2')
+config.bind('<Ctrl-">', 'tab-select 3')
+config.bind('<Ctrl-\'>', 'tab-select 4')
+config.bind('<Ctrl-(>', 'tab-select 5')
+config.bind('<Ctrl-->', 'tab-select 6')
+config.bind('<Ctrl-è>', 'tab-select 7')
+config.bind('<Ctrl-_>', 'tab-select 8')
+config.bind('<Ctrl-ç>', 'tab-select 9')
+config.bind('<Ctrl-à>', 'tab-select 10')
 config.bind('yos', 'config-cycle statusbar.show always never')
 config.bind('yot', 'config-cycle tabs.show always switching')
 config.bind('yox', 'config-cycle statusbar.show always never ;; config-cycle tabs.show always switching')
