@@ -1,5 +1,5 @@
 if exists('*packager#init')
-  call packager#add('camillededjoye/vim-php-refactoring-toolbox.git', {
+  call packager#add('camilledejoye/vim-php-refactoring-toolbox.git', {
     \ 'branch': 'improvements'
   \ })
 endif

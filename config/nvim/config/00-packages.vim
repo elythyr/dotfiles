@@ -4,7 +4,7 @@ if exists('*packager#init')
 
   call packager#add('kristijanhusak/vim-packager', { 'type': 'opt' })
 
-  call packager#add('camillededjoye/vim-cleanfold')
+  call packager#add('camilledejoye/vim-cleanfold')
 
   call packager#add('kana/vim-niceblock')
   " call packager#add('kana/vim-smartinput')
@@ -30,7 +30,7 @@ if exists('*packager#init')
 
   " Don't feel the need for it, but I keep the link in case
   " https://github.com/2072/PHP-Indenting-for-VIm
-  call packager#add('camillededjoye/php-foldexpr')
+  call packager#add('camilledejoye/php-foldexpr')
 
   call packager#add('lumiliet/vim-twig')
 
@@ -40,7 +40,7 @@ if exists('*packager#init')
 
   call packager#add('iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } })
 
-  call packager#add('camillededjoye/vim-sxhkdrc')
+  call packager#add('camilledejoye/vim-sxhkdrc')
 
   " }}}
 endif
