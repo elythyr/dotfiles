@@ -1,3 +1,6 @@
+# To run sudo commands with my aliases
+alias sudo='sudo '
+
 alias l='ls -C'
 alias la='ll -A'
 alias ll='ls --color=auto -lh'
