@@ -3,6 +3,8 @@
 1. [Installation](Installation/index)
 2. Configuration
     - [SSH](configuration/ssh)
+    - [Xorg Screens](configuration/xorgs/screens)
+    - [Nvidia](configuration/nvidia)
 3. [Pacman](Pacman/index)
     - [Reflector](Pacman/Reflector)
     - [Yay](Pacman/Yay)
