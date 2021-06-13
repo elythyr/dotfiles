@@ -15,7 +15,12 @@ blue="#81a2be"
 # Monitors {{{
 
 # Spread desktops amongs monitors
-bspc monitor -d I II III IV V VI VII VIII IX X
+if [ 2 -eq $(xrandr --listactivemonitors | awk '1 == NR { print $NF }') ]; then
+    bspc monitor ^1 -d web calendar tasks terminal images
+    bspc monitor ^2 -d paw video explorer slack notes
+else
+    bspc monitor -d web calendar tasks terminal images paw video explorer slack notes
+fi
 
 # }}}
 
