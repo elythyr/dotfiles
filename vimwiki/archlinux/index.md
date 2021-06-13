@@ -6,6 +6,7 @@
     - [Xorg Screens](configuration/xorgs/screens)
     - [Nvidia](configuration/nvidia)
     - [Grub](configuration/grub)
+    - [NumLock](configuration/numlock)
 3. [Pacman](Pacman/index)
     - [Reflector](Pacman/Reflector)
     - [Yay](Pacman/Yay)
