@@ -228,25 +228,6 @@ endfunction " }}}
 
 " }}}
 
-function! s:refreshStatusLine() abort " {{{
-  if get(b:, 'statusline_changedtick', 0) == b:changedtick
-    " Do nothing if the buffer has not changed
-    return
-  endif
-
-  call lightline#update()
-  let b:statusline_changedtick = b:changedtick
-endfunction " }}}
-
-" }}}
-
-" Auto commands {{{
-
-augroup ely_statusline
-  autocmd!
-  autocmd CursorHold,BufWritePost * call s:refreshStatusLine()
-augroup END
-
 " }}}
 
 " Statusline {{{

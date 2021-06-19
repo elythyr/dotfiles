@@ -1,4 +1,10 @@
-function! s:addErrorHighlight() abort
+if 0 == exists(':CocAction')
+  finish
+endif
+
+" Add error highlight {{{
+
+function! s:addErrorHighlight() abort " {{{
   if !exists('g:loaded_lightline')
     return
   endif
@@ -26,6 +32,29 @@ function! s:addErrorHighlight() abort
       \ )
     endfor
   endfor
-endfunction
+endfunction " }}}
 
 call s:addErrorHighlight()
+
+" }}}
+
+" Auto commands {{{
+
+function! s:refreshStatusLine() abort " {{{
+  if get(b:, 'statusline_changedtick', 0) == b:changedtick
+    " Do nothing if the buffer has not changed
+    return
+  endif
+
+  call lightline#update()
+  let b:statusline_changedtick = b:changedtick
+endfunction " }}}
+
+augroup ely_statusline
+  autocmd!
+  " autocmd CursorHold,BufWritePost * call s:refreshStatusLine()
+augroup END
+
+" }}}
+
+" vim: fdm=marker
