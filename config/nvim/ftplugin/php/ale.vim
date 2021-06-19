@@ -45,7 +45,7 @@ endfunction
 
 call ale#linter#Define('php', {
   \ 'name': 'php_cs_fixer',
-  \ 'executable': {buffer -> ale#node#FindExecutable(buffer, 'php_php_cs_fixer', [
+  \ 'executable': {buffer -> ale#path#FindExecutable(buffer, 'php_php_cs_fixer', [
     \ 'vendor/bin/php-cs-fixer',
     \ 'php-cs-fixer'
   \ ])},
