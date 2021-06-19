@@ -6,6 +6,9 @@ endif
 " let g:test#no_alternate = 1 " Ex.: Don't run tests on save from the sources
 let g:test#php#behat#use_suite_in_args = 1
 
+" Use testdox format for PHPUnit
+let g:test#php#phpunit#options = '--testdox'
+
 nnoremap <silent> <Leader>tn :TestNearest<CR>
 nnoremap <silent> <Leader>tf :TestFile<CR>
 nnoremap <silent> <Leader>ts :TestSuite<CR>

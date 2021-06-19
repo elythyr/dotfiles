@@ -1,7 +1,7 @@
 if exists('*packager#init') " {{{
   call packager#add('tpope/vim-surround')
   call packager#add('tpope/vim-commentary')
-  " call packager#add('tpope/vim-scriptease')
+  call packager#add('tpope/vim-scriptease')
   call packager#add('tpope/vim-unimpaired')
   " call packager#add('tpope/vim-endwise')
   " call packager#add('tpope/vim-speeddating')
@@ -12,19 +12,28 @@ if exists('*packager#init') " {{{
   call packager#add('radenling/vim-dispatch-neovim')
   call packager#add('tpope/vim-projectionist')
   call packager#add('tpope/vim-eunuch')
-  " Took a lot too much time to open vim on an old computer
-  " call packager#add('tpope/vim-sleuth')
-endif " }}}
-
-" Fugitive {{{
-
-" Hide fugitive://**// in buffer name and add [git] at then end instead
-let g:airline#extensions#fugitiveline#enabled = 1
+  call packager#add('tpope/vim-sleuth')
+endif
 
 nnoremap <silent> <Leader>gb :Gblame<CR>
 " Open the status window in a new tab
 nnoremap <silent> <Leader>gs :Gtabedit :<CR>
 
+" }}}
+
+" Unimpaired {{{
+" Disable some mappings because I don't use them and they conflict with others
+let g:nremap = {
+  \ '=p': '<skip>',
+  \ '=P': '<skip>',
+  \ '[u': '<skip>',
+  \ '[uu': '<skip>',
+  \ ']u': '<skip>',
+  \ ']uu': '<skip>',
+\ }
+
+" =o and =op mappings could not be removed this way so I had to deal with them
+" in ../after/plugin/conflicting-mappings.vim
 " }}}
 
 " Projectionist {{{

@@ -10,6 +10,7 @@ let g:ale_fixers = { 'php': [
   \ 'trim_whitespace',
 \ ]}
 let g:ale_php_cs_fixer_options = '--using-cache=no --quiet --no-interaction'
+let g:ale_php_phpstan_level = 1
 
 nmap <silent> <Leader>fs <Plug>(ale_fix)<CR>
 

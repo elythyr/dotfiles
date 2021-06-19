@@ -13,6 +13,7 @@ endif
   let g:coc_global_extensions = [
     \ 'coc-json',
     \ 'coc-vimlsp',
+    \ 'coc-phpactor',
   \ ]
 
 " }}}
@@ -26,8 +27,11 @@ endif
   " Goto code navigation.
   nmap <silent> <C-M-]> :call CocActionAsync('jumpTypeDefinition', 'edit')<CR>
   nmap <silent> <C-w><C-M-]> :call CocActionAsync('jumpTypeDefinition', 'vsplit')<CR>
-  " nmap <silent> gi <Plug>(coc-implementation)
-  " nmap <silent> gr <Plug>(coc-references)}
+  " Caution: gd will require <space> or to wait for the timeout
+  nmap <silent> gdi <Plug>(coc-implementation)
+  nmap <silent> <C-w>gdi :call CocActionAsync('jumpImplementation', 'vsplit')<CR>
+  nmap <silent> gdr <Plug>(coc-references)
+  nmap <silent> <C-w>gdr :call CocActionAsync('jumpReferences', 'vsplit')<CR>
 
   nmap <silent> gh :call CocActionAsync('doHover')<CR>
 
@@ -47,10 +51,12 @@ endif
   "   \ ? "\<Plug>(coc-snippets-expand)"
   "   \ : "\<Tab>"
 
+  " Applying codeAction to the current buffer
+  nmap <leader>cA <Plug>(coc-codeaction)
   " Applying codeAction to the selected region.
-  " Example: `<leader>aap` for current paragraph
-  xmap <leader>ac <Plug>(coc-codeaction-selected)
-  nmap <leader>ac <Plug>(coc-codeaction-selected)
+  " Example: `<leader>caap` for current paragraph
+  xmap <leader>ca <Plug>(coc-codeaction-selected)
+  nmap <leader>ca <Plug>(coc-codeaction-selected)
 
   " To manually refresh CoC completion list
   inoremap <expr> <silent> <C-space> coc#refresh()
@@ -58,12 +64,6 @@ endif
   " Refresh completion list on <BS>
   " Conflicting mapping, see: after/plugin/conflicting-mappings.vim
   " imap <silent> <BS> <BS><C-space>
-
-" }}}
-
-" Status line {{{
-
-  let g:airline#extensions#coc#enabled = 1 " see :h coc-status-airline
 
 " }}}
 

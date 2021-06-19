@@ -1,24 +1,18 @@
 {
+    "phpactor.enable": true,
+    "phpactor.config": {
+        "language_server_completion.trim_leading_dollar": true
+    },
     "languageserver": {
-        "phpactor": {
-            "trace.server": "verbose",
-            "command": "phpactor",
-            "args": ["language-server", "--record=/tmp/phpactor-lsp.log"],
-            "filetypes": ["php","cucumber"],
-            "initializationOptions": {
-            },
-            "settings": {
-                "indexer.indexer": "tolerant",
-                "worse_reflection.enable_context_location": false,
-                "indexer.enabled_watchers": ["inotify"],
-                "indexer.poll_time": 10000
-            },
-            "enable": true
-        },
         "phpactor_debug": {
-            "host": "127.0.0.1",
+            "host": "0.0.0.0",
             "port": 8088,
             "filetypes": ["php", "cucumber"],
+            "initializationOptions": {
+                "language_server_completion.trim_leading_dollar": true
+            },
+            "settings": {
+            },
             "enable": false
         }
     },
@@ -50,7 +44,8 @@
         "typeParameter": "\uf728",
         "default": "\uf29c"
     },
-    "signature.floatMaxWidth": 120,
+    "signature.maxWindowWidth": 120,
+    "signature.preferShownAbove": true,
     "list.insertMappings": {
         "<C-c>": "do:exit"
     },

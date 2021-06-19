@@ -1,9 +1,6 @@
 if exists('*packager#init')
-  call packager#add('phpactor/phpactor', {
-    \ 'branch': 'develop',
-    \ 'do': 'composer install -o'
-  \ })
-  call packager#add('elythyr/phpactor-mappings')
+  call packager#add('phpactor/phpactor', {'do': 'composer install -o'})
+  call packager#add('camilledejoye/phpactor-mappings')
 endif
 
 " phpactor {{{
@@ -31,6 +28,8 @@ let g:phpactorCustomMappings = [
   \ ['<Leader>pp', '<Plug>phpactorContextMenu', 'n'],
   \ ['<Leader>pn', '<Plug>phpactorNavigate', 'n'],
   \ ['<Leader>pt', '<Plug>phpactorTransform', 'n'],
+  \ ['<Leader>pe', '<Plug>phpactorClassExpand', 'n'],
+  \ ['<Leader>pE', '<Plug>phpactorClassExpand <BAR> :normal! Bi\<CR>', 'n'],
 \ ]
 
 " }}}

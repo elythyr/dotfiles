@@ -7,12 +7,6 @@ if exists('*packager#init')
   call packager#add('camilledejoye/vim-cleanfold')
 
   call packager#add('kana/vim-niceblock')
-  " call packager#add('kana/vim-smartinput')
-  " call packager#add('kana/vim-smartword')
-  call packager#add('kana/vim-textobj-user') " Required for textobj plugins
-  call packager#add('kana/vim-textobj-function')
-  " call packager#add('kana/vim-textobj-syntax')
-  " call packager#add('kana/vim-textobj-indent')
 
   call packager#add('terryma/vim-multiple-cursors')
 
@@ -42,7 +36,13 @@ if exists('*packager#init')
 
   call packager#add('camilledejoye/vim-sxhkdrc')
 
+  " Handle .rst files
+  " call packager#add('gu-fan/riv.vim')
+
   " }}}
+
+  " Adds a bunch of text objects, especially argument text object
+  call packager#add('wellle/targets.vim')
 endif
 
 command! PackInstall packadd vim-packager | source $MYVIMRC
