@@ -4,7 +4,7 @@
 
 " Defines a keyword accordingly to PHP labels definition:
 " https://www.php.net/manual/en/language.variables.basics.php
-setlocal iskeyword=a-z,A-Z,_,128-255
+setlocal iskeyword=a-z,A-Z,48-57,_,128-255
 
 " foldlevelstart doesn't work for ftplugin
 setlocal foldlevel=1 " To automaticaly open classes folds
