@@ -16,7 +16,8 @@
             "enable": false
         }
     },
-    "suggest.defaultSortMethod": "alphabetical",
+    "suggest.floatEnable": false,
+    "suggest.defaultSortMethod": "none",
     "suggest.completionItemKindLabels": {
         "keyword": "\uf1de",
         "variable": "\ue79b",
